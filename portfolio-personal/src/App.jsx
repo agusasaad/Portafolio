@@ -1,16 +1,13 @@
-import './App.css'
-import NavBar from './Components/NavBar/NavBar'
-import Header from './Components/Header/Header'
+import "./App.css";
+import { Flex } from "@chakra-ui/react";
+import NavBar from "./Components/NavBar/NavBar";
 
 function App() {
-
   return (
-    <div className='container-app'>
-      <div className="container-home">
-        <NavBar />
-      </div>
-    </div>
-  )
+    <Flex  w={"100%"}>
+      <NavBar />
+    </Flex>
+  );
 }
 
-export default App
+export default App;
