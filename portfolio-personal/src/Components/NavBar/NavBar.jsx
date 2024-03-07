@@ -15,7 +15,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { LuHome } from "react-icons/lu";
+import { AiOutlineUser } from "react-icons/ai";
 import { LiaToolsSolid } from "react-icons/lia";
 import { GrProjects } from "react-icons/gr";
 import { RiContactsLine } from "react-icons/ri";
@@ -29,8 +29,8 @@ const NavBar = () => {
   const btnRef = useRef();
   return (
     <>
-      <Flex w={"100%"} p={3}>
-        <Button ref={btnRef} onClick={onOpen} variant={"outline"}>
+      <Flex w={"100%"} p={3} position={'absolute'}>
+        <Button ref={btnRef} onClick={onOpen} variant={"outline"} color={'aliceblue'}>
           <RxHamburgerMenu />
         </Button>
       </Flex>
@@ -88,8 +88,8 @@ const NavBar = () => {
                 gap={5}
                 _hover={{bg: 'rgb(49, 49, 49)'}}
               >
-                <LuHome />
-                Header
+                <AiOutlineUser />
+                About Me
               </Button>
 
               <Button
