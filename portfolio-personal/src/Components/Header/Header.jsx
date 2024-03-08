@@ -1,20 +1,45 @@
-import {  Flex, Heading, Text } from "@chakra-ui/react"
-import './Header.css'
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import "./Header.css";
+import Title from "./../../../public/img/Title.png";
 
 const Header = () => {
   return (
-    <Flex id="backgroundImage" w={'100%'}p={'100px'} justifyContent={'center'} direction={'column'} gap={100}>
-      <Flex justifyContent={'center'} direction={'column'} h={'900px'} p={'50px'}>
-        <Heading as={'h1'} color={'rgb(182, 182, 182)'} fontSize='7xl'>Im Agustin Asaad</Heading>
-        <Text color={'rgb(46, 46, 46)'} fontSize={'4xl'}>Full Stack Developer</Text>
-      </Flex>
-
-      <Flex direction={'column'} justifyContent={'start'} alignItems={'center'} w={'100%'} h={'900px'}>
-          <Heading color={'rgb(182, 182, 182)'} fontSize='7xl'>About me</Heading>
-          <Text  width={'50%'} textAlign={'center'} color={'rgb(46, 46, 46)'} fontSize={'xl'}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dicta ad, quasi nam enim accusantium inventore quisquam, iure sunt aspernatur eum optio, ullam at? Aliquam odio fuga mollitia quaerat suscipit.</Text>
-      </Flex>
+    <Flex id="backgroundImage" w={"100%"} h={"900px"}>
+      <Box
+        boxSize="xl"
+        border={"1px"}
+        display={"flex"}
+        flexDirection={"column"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        w={"100%"}
+        h={"100%"}
+      >
+        <Text
+          color={"aliceblue"}
+          fontSize={"2xl"}
+          fontWeight={"200"}
+          pl={"20px"}
+          w={"35%"}
+          textAlign={"center"}
+        >
+          {"Hello! I'm Agustin Asaad"}
+        </Text>
+        <Image src={Title} alt="Dan Abramov" w={"700px"} />
+        <Text
+          color={"rgb(110, 110, 110)"}
+          fontSize={"sl"}
+          pl={"30px"}
+          w={"25%"}
+          textAlign={"center"}
+        >
+          Welcome to my personal portfolio! Here, you will find a compilation of
+          my projects, achievements, and skills. From web designs to innovative
+          solutions.
+        </Text>
+      </Box>
     </Flex>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

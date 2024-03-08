@@ -29,14 +29,14 @@ const NavBar = () => {
   const btnRef = useRef();
   return (
     <>
-      <Flex w={"100%"} p={3} position={'absolute'}>
-        <Button ref={btnRef} onClick={onOpen} variant={"outline"} color={'aliceblue'}>
+      <Flex w={"100%"} p={3} position={'absolute'} justifyContent={'end'}>
+        <Button ref={btnRef} onClick={onOpen} variant={"outline"} borderColor={'rgb(50, 50, 50)'} color={'rgb(50, 50, 50)'} _hover={'none'}>
           <RxHamburgerMenu />
         </Button>
       </Flex>
       <Drawer
         isOpen={isOpen}
-        placement="left"
+        placement='right'
         onClose={onClose}
         finalFocusRef={btnRef}
       >
