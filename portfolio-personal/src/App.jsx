@@ -2,17 +2,19 @@ import "./App.css";
 import { Flex } from "@chakra-ui/react";
 import NavBar from "./Components/NavBar/NavBar";
 import Header from "./Components/Header/Header";
-import Skill from "./Components/Skill/skill";
+import AboutMe from "./Components/AboutMe/AboutMe";
+import ButtonDarkMode from "./Components/ButtonDarkMode/ButtonDarkMode";
 
 function App() {
   return (
-    <>
-      <Flex w={"100%"} flexDirection={"column"} position={'relative'}>
+    <div>
+      <Flex w={"100%"} flexDirection={"column"} position={'relative'} bg={'black'}>
         <NavBar />
+        <ButtonDarkMode/>
         <Header />
-        <Skill/>
+        <AboutMe/>
       </Flex>
-    </>
+    </div>
   );
 }
 

@@ -1,13 +1,13 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import { MdOutlineFileDownload } from "react-icons/md";
 import "./Header.css";
 import Title from "./../../../public/img/Title.png";
 
 const Header = () => {
   return (
-    <Flex id="backgroundImage" w={"100%"} h={"900px"}>
+    <Flex id="backgroundImage" w={"100%"} h={"1100"}>
       <Box
         boxSize="xl"
-        border={"1px"}
         display={"flex"}
         flexDirection={"column"}
         justifyContent={"center"}
@@ -19,26 +19,38 @@ const Header = () => {
           color={"aliceblue"}
           fontSize={"2xl"}
           fontWeight={"200"}
-          pl={"20px"}
           w={"35%"}
           textAlign={"center"}
         >
           {"Hello! I'm Agustin Asaad"}
         </Text>
-        <Image src={Title} alt="Dan Abramov" w={"700px"} />
+        <Image src={Title} alt="Dan Abramov" w={"700px"}/>
         <Text
           color={"rgb(110, 110, 110)"}
-          fontSize={"sl"}
-          pl={"30px"}
-          w={"25%"}
+          fontSize={"20px"}
+          letterSpacing={"-1px"}
+          w={"35%"}
           textAlign={"center"}
         >
           Welcome to my personal portfolio! Here, you will find a compilation of
           my projects, achievements, and skills. From web designs to innovative
           solutions.
         </Text>
+        <Flex mt={'20px'} w={'20%'} justifyContent={'center'} >
+            <Text fontSize={'xl'} color={'#6942ff'} display={'flex'} alignItems={'center'}>
+              Download cv
+            </Text>
+        <Button 
+        border={'none'}
+        bg={'transparent'}
+        color={'aliceblue'}
+        fontSize={'3xl'}
+        _hover={'none'}
+        ><MdOutlineFileDownload/></Button>
+        </Flex>
       </Box>
     </Flex>
+    
   );
 };
 

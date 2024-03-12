@@ -29,14 +29,14 @@ const NavBar = () => {
   const btnRef = useRef();
   return (
     <>
-      <Flex w={"100%"} p={3} position={'absolute'} justifyContent={'end'}>
-        <Button ref={btnRef} onClick={onOpen} variant={"outline"} borderColor={'rgb(50, 50, 50)'} color={'rgb(50, 50, 50)'} _hover={'none'}>
-          <RxHamburgerMenu />
+      <Flex w={"100%"} top={'15px'} position={'absolute'} justifyContent={'start'}>
+        <Button ref={btnRef} position={'fixed'} onClick={onOpen} variant={"outline"} border={'none'} color={'aliceblue'} _hover={'none'}>
+          <RxHamburgerMenu fontSize={'30'}/>
         </Button>
       </Flex>
       <Drawer
         isOpen={isOpen}
-        placement='right'
+        placement='left'
         onClose={onClose}
         finalFocusRef={btnRef}
       >
@@ -83,6 +83,7 @@ const NavBar = () => {
                 w={"100%"}
                 color={"aliceblue"}
                 size={"lg"}
+                fontWeight={'100'}
                 display={"flex"}
                 justifyContent={"start"}
                 gap={5}
@@ -97,6 +98,7 @@ const NavBar = () => {
                 w={"100%"}
                 color={"aliceblue"}
                 size={"lg"}
+                fontWeight={'100'}
                 display={"flex"}
                 justifyContent={"start"}
                 gap={5}
@@ -111,6 +113,7 @@ const NavBar = () => {
                 w={"100%"}
                 color={"aliceblue"}
                 size={"lg"}
+                fontWeight={'100'}
                 display={"flex"}
                 justifyContent={"start"}
                 gap={5}
@@ -125,6 +128,7 @@ const NavBar = () => {
                 w={"100%"}
                 color={"aliceblue"}
                 size={"lg"}
+                fontWeight={'100'}
                 display={"flex"}
                 justifyContent={"start"}
                 gap={5}
@@ -141,6 +145,7 @@ const NavBar = () => {
               w={"100%"}
               color={"aliceblue"}
               size={"lg"}
+              fontWeight={'100'}
               display={"flex"}
               justifyContent={"start"}
               gap={5}
@@ -152,6 +157,7 @@ const NavBar = () => {
               w={"100%"}
               color={"aliceblue"}
               size={"lg"}
+              fontWeight={'100'}
               display={"flex"}
               justifyContent={"start"}
               gap={5}
@@ -163,6 +169,7 @@ const NavBar = () => {
               w={"100%"}
               color={"aliceblue"}
               size={"lg"}
+              fontWeight={'100'}
               display={"flex"}
               justifyContent={"start"}
               gap={5}
