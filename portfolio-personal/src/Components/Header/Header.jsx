@@ -5,50 +5,55 @@ import Title from "./../../../public/img/Title.png";
 
 const Header = () => {
   return (
-    <Flex id="backgroundImage" w={"100%"} h={"1100"}>
-      <Box
+    <Flex id="backgroundImage" w={"100%"} h={"950px"} flexDirection={"row"} justifyContent={'center'}>
+      <Flex
+        opacity={'80%'}
         boxSize="xl"
         display={"flex"}
         flexDirection={"column"}
         justifyContent={"center"}
-        alignItems={"center"}
-        w={"100%"}
-        h={"100%"}
+        alignContent={"center"}
+        w={"auto"}
+        h={"auto"}
       >
+        <Box>
         <Text
           color={"aliceblue"}
           fontSize={"2xl"}
           fontWeight={"200"}
-          w={"35%"}
+          w={"auto"}
           textAlign={"center"}
         >
-          {"Hello! I'm Agustin Asaad"}
+          {"Hello! I'm Agustin"}
         </Text>
-        <Image src={Title} alt="Dan Abramov" w={"700px"}/>
+        </Box>
+        <Box m={'0px 30px'}>
+          <Image src={Title} alt="Dan Abramov" w={"700px"}/>
+        </Box>
+        <Box m={'0px 30px'}>
         <Text
           color={"rgb(110, 110, 110)"}
           fontSize={"20px"}
           letterSpacing={"-1px"}
-          w={"35%"}
+          w={"100%"}
           textAlign={"center"}
         >
-          Welcome to my personal portfolio! Here, you will find a compilation of
-          my projects, achievements, and skills. From web designs to innovative
+          Welcome to my personal portfolio! Here, you will find a compilation of <br/>
+          my projects, achievements, and skills. From web designs <br/> to innovative 
           solutions.
         </Text>
-        <Flex mt={'20px'} w={'20%'} justifyContent={'center'} >
-            <Text fontSize={'xl'} color={'#6942ff'} display={'flex'} alignItems={'center'}>
-              Download cv
-            </Text>
+        </Box>
+        <Flex mt={'30px'} w={'auto'} justifyContent={'center'}>
         <Button 
-        border={'none'}
+        border={'1px'} 
+        borderColor={'#5632D1'}
         bg={'transparent'}
         color={'aliceblue'}
-        fontSize={'3xl'}
+        fontSize={'md'}
         _hover={'none'}
-        ><MdOutlineFileDownload/></Button>
+        >Download cv <MdOutlineFileDownload/></Button>
         </Flex>
-      </Box>
+      </Flex>
     </Flex>
     
   );

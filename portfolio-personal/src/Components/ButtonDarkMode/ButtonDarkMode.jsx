@@ -13,7 +13,7 @@ const ButtonDarkMode = () => {
         gap={2}
       >
         <Text color={"rgb(110, 110, 110)"}>Dark Mode</Text>
-        <Switch size="lg" colorScheme="teal" />
+        <Switch size="lg" colorScheme="purple" />
       </Flex>
     </>
   );

@@ -1,13 +1,16 @@
-import './AboutMe.css'
-import { Flex} from "@chakra-ui/react";
-// import TitleAbout from './../../../public/img/PNGuser.png'
+import "./AboutMe.css";
+import { Box, Flex } from "@chakra-ui/react";
 
 const AboutMe = () => {
-  return <>
-    <Flex className='AboutMe' w={'100%'} height={'100vh'}>
-    {/* <Image src={TitleAbout}/> */}
-    </Flex>
-  </>
+  return (
+    <>
+      <Flex width={'100%'} height={'900px'} alignItems={'center'} justifyContent={'center'}>
+          <Box  w={'90%'} h={'80%'} className="boxAboutMe">
+
+          </Box>
+      </Flex>
+    </>
+  );
 };
 
 export default AboutMe;

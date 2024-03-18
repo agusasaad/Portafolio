@@ -31,7 +31,7 @@ const NavBar = () => {
     <>
       <Flex w={"100%"} top={'15px'} position={'absolute'} justifyContent={'start'}>
         <Button ref={btnRef} position={'fixed'} onClick={onOpen} variant={"outline"} border={'none'} color={'aliceblue'} _hover={'none'}>
-          <RxHamburgerMenu fontSize={'30'}/>
+          <RxHamburgerMenu fontSize={'30px'}/>
         </Button>
       </Flex>
       <Drawer

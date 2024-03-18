@@ -1,10 +1,5 @@
 #backgroundImage {
-  background: linear-gradient(
-    to bottom,
-    rgb(0, 0, 0),
-    rgba(0,0,0)
-  );
-  background-image: url('./../../../public/img/FondoAbout.jpg');
+  background-image: url('./../../../public/img/fondoAbout.jpg');
   background-size: cover;
-  background-attachment: fixed;
+  background-position-y: 96%;
 }

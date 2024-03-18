@@ -1,7 +1,5 @@
-.AboutMe {
-    background: linear-gradient(
-        to bottom,
-        rgb(0, 0, 0),
-        rgba(0,0,0)
-      );
+.title {
+  background-image: url('./../../../public/img/firstitle.png');
+  background-size: cover;
+  background-attachment: fixed;
 }
