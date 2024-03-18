@@ -4,15 +4,12 @@ const ButtonDarkMode = () => {
   return (
     <>
       <Flex
-        w={"auto"}
-        justifyContent={"end"}
-        alignItems={"center"}
-        position={'fixed'}
-        top={"20px"}
-        right={"20px"}
-        gap={2}
+      w={'auto'}
+      display={'flex'}
+      alignItems={'center'}
+      mr={'10px'}
       >
-        <Text color={"rgb(110, 110, 110)"}>Dark Mode</Text>
+        <Text color={"rgb(110, 110, 110)"} w={'100px'}>Dark Mode</Text>
         <Switch size="lg" colorScheme="purple" />
       </Flex>
     </>

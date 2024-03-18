@@ -29,8 +29,8 @@ const NavBar = () => {
   const btnRef = useRef();
   return (
     <>
-      <Flex w={"100%"} top={'15px'} position={'absolute'} justifyContent={'start'}>
-        <Button ref={btnRef} position={'fixed'} onClick={onOpen} variant={"outline"} border={'none'} color={'aliceblue'} _hover={'none'}>
+      <Flex w={"100%"} justifyContent={'start'}>
+        <Button ref={btnRef} onClick={onOpen} variant={"outline"} border={'none'} color={'aliceblue'} _hover={'none'}>
           <RxHamburgerMenu fontSize={'30px'}/>
         </Button>
       </Flex>

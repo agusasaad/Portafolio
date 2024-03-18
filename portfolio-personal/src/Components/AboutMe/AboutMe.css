@@ -1,5 +1,13 @@
-.title {
-  background-image: url('./../../../public/img/firstitle.png');
-  background-size: cover;
-  background-attachment: fixed;
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('./../../../../../../clash-display/ClashDisplayRegular.otf') format('truetype');
+}
+
+.Font {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 30px;
+  color: aliceblue;
+  letter-spacing: 1px;
+  
 }

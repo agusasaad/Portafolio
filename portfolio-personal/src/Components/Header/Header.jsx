@@ -5,16 +5,15 @@ import Title from "./../../../public/img/Title.png";
 
 const Header = () => {
   return (
-    <Flex id="backgroundImage" w={"100%"} h={"950px"} flexDirection={"row"} justifyContent={'center'}>
+    <Flex id="backgroundImage" w={"100%"} h={"950px"} flexDirection={"row"} justifyContent={'center'} alignItems={'center'}>
       <Flex
         opacity={'80%'}
-        boxSize="xl"
         display={"flex"}
         flexDirection={"column"}
         justifyContent={"center"}
-        alignContent={"center"}
+        alignItems={"center"}
         w={"auto"}
-        h={"auto"}
+        h={"60%"}
       >
         <Box>
         <Text
@@ -30,12 +29,12 @@ const Header = () => {
         <Box m={'0px 30px'}>
           <Image src={Title} alt="Dan Abramov" w={"700px"}/>
         </Box>
-        <Box m={'0px 30px'}>
+        <Box m={'0px 30px'} display={'flex'} justifyContent={'center'}>
         <Text
           color={"rgb(110, 110, 110)"}
           fontSize={"20px"}
           letterSpacing={"-1px"}
-          w={"100%"}
+          w={'100%'}
           textAlign={"center"}
         >
           Welcome to my personal portfolio! Here, you will find a compilation of <br/>
@@ -51,7 +50,8 @@ const Header = () => {
         color={'aliceblue'}
         fontSize={'md'}
         _hover={'none'}
-        >Download cv <MdOutlineFileDownload/></Button>
+        gap={1}
+        >Download cv <MdOutlineFileDownload fontSize={'25px'}/></Button>
         </Flex>
       </Flex>
     </Flex>

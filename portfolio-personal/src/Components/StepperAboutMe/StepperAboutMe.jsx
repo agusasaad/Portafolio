@@ -10,7 +10,7 @@ const StepperAboutMe = () => {
       w={"100%"}
       alignItems={"center"}
       position={"absolute"}
-      top={"57%"}
+      top={"75%"}
     >
       <div className="line"></div>
       <div className="circle">
