@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import {
   Avatar,
-  Badge,
   Box,
   Button,
   Drawer,
@@ -23,13 +22,39 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 import imgProfile from "../../../public/img/imgProfile.jpg";
+import { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
+
+  const elementRef = useRef(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: elementRef.current,
+        start: "top", // Comienza la animación cuando el centro del elemento alcanza la parte superior de la ventana gráfica
+        end: "bottom", // Termina la animación cuando el elemento alcanza la parte superior de la ventana gráfica
+        scrub: true,
+        toggleActions: "restart pause reverse pause",
+      },
+    });
+
+    tl.to(elementRef.current, {
+      opacity: 0,
+      duration: 1,
+    });
+  }, []);
+
+  
   return (
     <>
-      <Flex w={"100%"} justifyContent={'start'}>
+      <Flex w={"100%"} justifyContent={'end'} useRef={elementRef}>
         <Button ref={btnRef} onClick={onOpen} variant={"outline"} border={'none'} color={'aliceblue'} _hover={'none'}>
           <RxHamburgerMenu fontSize={'30px'}/>
         </Button>
@@ -39,6 +64,7 @@ const NavBar = () => {
         placement='left'
         onClose={onClose}
         finalFocusRef={btnRef}
+        size={{base:'xl', sm:'xl', md:'xs', lg:'xs', xl:'xs'}}
       >
         <DrawerOverlay />
         <DrawerContent>
@@ -56,14 +82,13 @@ const NavBar = () => {
                 display={"flex"}
                 justifyContent={"center"}
                 flexDirection={"column"}
-                gap={1}
               >
-                <Text fontWeight="bold" color={"aliceblue"}>
+                <Text fontWeight={500} color={"aliceblue"} fontSize={{base:'sm',xl:"17px"}}>
                   Agustin Asaad
                 </Text>
-                <Badge background={"#282828"} color={"aliceblue"}>
-                  Full Stack Developer
-                </Badge>
+                <Text color={"aliceblue"} fontSize={'sm'} fontWeight={300}>
+                  Front End Developer
+                </Text>
               </Box>
             </Flex>
           </DrawerHeader>

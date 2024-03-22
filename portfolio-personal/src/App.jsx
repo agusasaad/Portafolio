@@ -2,8 +2,7 @@ import { Box, Flex } from "@chakra-ui/react";
 import NavBar from "./Components/NavBar/NavBar";
 import Header from "./Components/Header/Header";
 import AboutMe from "./Components/AboutMe/AboutMe";
-import ButtonDarkMode from "./Components/ButtonDarkMode/ButtonDarkMode";
-// import StepperAboutMe from "./Components/StepperAboutMe/StepperAboutMe";
+import AvatarNav from "./Components/AvatarNav/AvatarNav";
 
 function App() {
   return (
@@ -17,11 +16,11 @@ function App() {
         position={'relative'}
       >
         <Box display={'flex'} position={'absolute'} top={'15px'} w={'100%'}>
+          <AvatarNav />
           <NavBar />
-          <ButtonDarkMode />
         </Box>
-
         <Header />
+        <AboutMe />
         <AboutMe />
       </Flex>
     </>
