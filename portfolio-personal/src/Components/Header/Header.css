@@ -1,13 +1,7 @@
-@font-face {
-  font-family: 'AvenirNext-Bold';
-  src: url('./../../../../../../AvenirNext-Bold.ttf') format('truetype');
-}
-
 #backgroundImage {
-  background-image: url('./../../../public/img/fondoAbout.jpg');
-  background-attachment: fixed;
+  background-image: url('./../../../public/img/FondoAbout.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position-y: 10%;
+  background-position: center;
 }
 

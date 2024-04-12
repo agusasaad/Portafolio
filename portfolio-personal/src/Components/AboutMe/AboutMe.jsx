@@ -1,7 +1,9 @@
-import { Box, Text } from "@chakra-ui/react";
 import "./AboutMe.css";
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import { Box, useBreakpointValue } from "@chakra-ui/react";
+import HeaderAB from "./ComponentAbout/HeaderAB";
+import CarruselAB from "./ComponentAbout/CarruselAB";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const AboutMe = () => {
@@ -12,32 +14,45 @@ const AboutMe = () => {
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        markers:true,
         trigger: elementRef.current,
-        start: "top top",
-        end: "bottom",
+        // markers:true,
+        start: "top+=5%",
+        end: "center",
         scrub: true,
-        pin: elementRef.current
-        
+        toggleActions: "restart pause reverse pause",
       },
     });
 
     tl.to(elementRef.current, {
-      x: -1000,
-      opacity:0,
-      
+      opacity: 0,
+      duration: 1,
     });
   }, []);
 
+  const showNavBar = useBreakpointValue({
+    base: true,
+    xs: true,
+    sm: true,
+    md: true,
+    lg: false,
+    xl: false,
+    full: false,
+  });
 
   return (
-    <Box w={"100%"} h={"2000px"} display={'flex'} flexDirection={'column'} justifyContent={'start'} alignItems={'center'} ref={elementRef} >
-      <Box w={'100%'} height={'150px'} display={'flex'} justifyContent={'center'} alignItems={'center'}>
-        <Text border={'1px'} p={'5px 15px'} borderRadius={'15px'} borderColor={'#7f30f5'} color={'aliceblue'}> About Me</Text>
-      </Box>
-      <Box height={'auto'}>
-        <Text fontSize={'8xl'} color={'aliceblue'} textAlign={'center'}>Prueba texto que aparece</Text>
-      </Box>
+    <Box
+      id={!showNavBar ? "background" : undefined}
+      className={showNavBar ? "background" : undefined}
+      w={"100%"}
+      h={"auto"}
+      display={"flex"}
+      flexDirection={"column"}
+      justifyContent={"center"}
+      py={{ base: "0px", md: "200px", lg: "200px", xl: "200px" }}
+      ref={elementRef}
+    >
+      <HeaderAB />
+      <CarruselAB />
     </Box>
   );
 };

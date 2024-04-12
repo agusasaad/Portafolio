@@ -1,22 +1,30 @@
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
-import { MdOutlineFileDownload } from "react-icons/md";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import "./Header.css";
-import Title from "./../../../public/img/Title.png";
+import Title from "./../../../public/img/titleBlue.png";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 const Header = () => {
   const elementRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    gsap.set([".animation"], { y: 100, opacity: 0 });
+
+    gsap.to([".animation"], {
+      opacity: 1,
+      y: 0,
+      stagger: 0.1,
+      ease: "power2.inOut",
+      duration: 1.5,
+    });
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: elementRef.current,
+        // markers: true,
         start: "top",
-        end: "400",
+        end: "bottom-=50%",
         scrub: true,
         toggleActions: "restart pause reverse pause",
       },
@@ -28,64 +36,61 @@ const Header = () => {
     });
   }, []);
 
+
   return (
     <Flex
-      opacity={"100%"}
-      ref={elementRef}
       id="backgroundImage"
       w={"100%"}
-      h={{ base: "700px", md: "800px", lg: "1000px", xl: "1000px" }}
+      h={{ base: "750px", md: "750px", lg: "600px", xl: "950px" }}
       flexDirection={"row"}
       justifyContent={"center"}
       alignItems={"center"}
+      ref={elementRef}
+      mb={"50px"}
     >
       <Flex
+        className="animation"
         display={"flex"}
         flexDirection={"column"}
         justifyContent={"center"}
         alignItems={"center"}
         w={"auto"}
-        h={"100%"}
+        h={"auto"}
       >
-        <Box display={"flex"} justifyContent={"center"}>
+        <Box display={"flex"} justifyContent={"center"} mb={"20px"}>
           <Text
-            color={"aliceblue"}
-            fontSize={{ base: "xs", sm: "xl", md: "2xl", xl: "2xl" }}
-            fontWeight={400}
+            color={"white"}
+            fontSize={{ base: "sm", sm: "md", md: "lg", xl: "lg" }}
+            fontWeight={200}
             w={"auto"}
             textAlign={"center"}
+            border={"1px"}
+            borderColor={"#171717"}
+            bg={"rgb(5, 5, 5)"}
+            borderRadius={"20px"}
+            p={{ base: "5px 10px", sm: "5px 15px" }}
+            letterSpacing={"1px"}
           >
-            {"Hello! I'm Agustin"}
+            Hello! I&apos;m Agustin
           </Text>
         </Box>
         <Box m={"0px 30px"}>
-          <Image src={Title} alt="Dan Abramov" w={"700px"} />
+          <Image src={Title} alt="Dan Abramov" w={"600px"} className="img" />
         </Box>
         <Box m={"0px 30px"} display={"flex"} justifyContent={"center"}>
           <Text
-            color={"rgb(110, 110, 110)"}
-            fontSize={{ base: "xs", sm: "sm", md: "xl", xl: "20px" }}
+            as={"p"}
+            w={{ base: "auto", sm: "70%", md: "70%", lg: "55%", xl: "55%" }}
+            color={"#959499"}
+            fontSize={{ base: "lg", sm: "lg", md: "xl", xl: "20px" }}
             textAlign={"center"}
-            fontWeight={400}
+            fontWeight={500}
+            letterSpacing={"1px"}
           >
             Welcome to my personal portfolio! Here, you will find a compilation
-            of <br />
-            my projects, achievements, and skills. From web designs <br /> to
+            of my projects, achievements, and skills. From web designs <br /> to
             innovative solutions.
           </Text>
-        </Box>
-        <Box mt={"30px"} w={"auto"} display={"flex"} justifyContent={"center"}>
-          <Button
-            border={"2px"}
-            borderColor={"#5632D1"}
-            bg={"transparent"}
-            color={"aliceblue"}
-            fontSize={"md"}
-            _hover={"none"}
-            gap={1}
-          >
-            Download cv <MdOutlineFileDownload fontSize={"25px"} />
-          </Button>
         </Box>
       </Flex>
     </Flex>
