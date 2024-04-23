@@ -181,9 +181,9 @@ const MenuNav = () => {
               <Button
                 bg={"transparent"}
                 w={"100%"}
-                color={"aliceblue"}
+                color={"#959499"}
                 size={"lg"}
-                fontWeight={"100"}
+                fontWeight={500}
                 display={"flex"}
                 justifyContent={"start"}
                 gap={5}
@@ -196,9 +196,9 @@ const MenuNav = () => {
               <Button
                 bg={"transparent"}
                 w={"100%"}
-                color={"aliceblue"}
+                color={"#959499"}
                 size={"lg"}
-                fontWeight={"100"}
+                fontWeight={500}
                 display={"flex"}
                 justifyContent={"start"}
                 gap={5}
@@ -211,9 +211,9 @@ const MenuNav = () => {
               <Button
                 bg={"transparent"}
                 w={"100%"}
-                color={"aliceblue"}
+                color={"#959499"}
                 size={"lg"}
-                fontWeight={"100"}
+                fontWeight={500}
                 display={"flex"}
                 justifyContent={"start"}
                 gap={5}
@@ -226,9 +226,9 @@ const MenuNav = () => {
               <Button
                 bg={"transparent"}
                 w={"100%"}
-                color={"aliceblue"}
+                color={"#959499"}
                 size={"lg"}
-                fontWeight={"100"}
+                fontWeight={500}
                 display={"flex"}
                 justifyContent={"start"}
                 gap={5}
@@ -243,9 +243,9 @@ const MenuNav = () => {
               <Button
                 bg={"transparent"}
                 w={"100%"}
-                color={"aliceblue"}
+                color={"#959499"}
                 size={"lg"}
-                fontWeight={"100"}
+                fontWeight={500}
                 display={"flex"}
                 justifyContent={"start"}
                 gap={5}
@@ -258,9 +258,9 @@ const MenuNav = () => {
               <Button
                 bg={"transparent"}
                 w={"100%"}
-                color={"aliceblue"}
+                color={"#959499"}
                 size={"lg"}
-                fontWeight={"100"}
+                fontWeight={500}
                 display={"flex"}
                 justifyContent={"start"}
                 gap={5}
@@ -273,9 +273,9 @@ const MenuNav = () => {
               <Button
                 bg={"transparent"}
                 w={"100%"}
-                color={"aliceblue"}
+                color={"#959499"}
                 size={"lg"}
-                fontWeight={"100"}
+                fontWeight={500}
                 display={"flex"}
                 justifyContent={"start"}
                 gap={5}

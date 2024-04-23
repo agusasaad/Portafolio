@@ -11,7 +11,7 @@ function App() {
         w={"100%"}
         h={"auto"}
         flexDirection={"column"}
-        alignContent={"center"}
+        alignItems={"center"}
         bg={"black"}
         position={"relative"}
       >

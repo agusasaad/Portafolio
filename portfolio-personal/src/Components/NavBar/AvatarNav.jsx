@@ -1,7 +1,7 @@
 import { Avatar, Box, Flex, Text } from "@chakra-ui/react";
 import imgProfile from "../../../public/img/imgProfile.jpg";
-
 const AvatarNav = () => {
+
   return (
     <>
       <Flex
@@ -10,7 +10,7 @@ const AvatarNav = () => {
         alignItems={"center"}
         justifyItems={"flex-start"}
       >
-        <Box border={'2px'} p={'5px'} borderRadius={'50%'} borderColor={'#704aef'}>
+        <Box id="borderAvatar" border={'2px'} p={'5px'} borderRadius={'50%'} borderColor={'#704aef'}>
           <Avatar src={imgProfile} w={{base:'40px' ,xl:"50px"}} h={{base:'40px' ,xl:"50px"}} />
         </Box>
         <Box
@@ -22,9 +22,12 @@ const AvatarNav = () => {
           <Text fontWeight={500} color={"aliceblue"} fontSize={{base:'sm',xl:"17px"}}>
             Agustin Asaad
           </Text>
-          <Text background={"transparent"} fontSize={{base:'xs', xl:"md"}} color={"grey"} fontWeight={500}>
-            Front End Developer
-          </Text>
+          <Flex alignItems={'center'} gap={1}>
+            <Box w={'10px'} h={'10px'} borderRadius={'50%'} bg={'#47AC53'}></Box> 
+            <Text background={"transparent"} fontSize={{base:'xs', xl:"md"}} color={"#8c8c8c"} fontWeight={500}>
+            Available for work
+            </Text>
+          </Flex>
         </Box>
       </Flex>
     </>

@@ -9,13 +9,13 @@ const NavBar = () => {
   useEffect(() => {
     gsap.registerPlugin(MotionPathPlugin);
 
-    gsap.set(["#NavBarAnimate"], { x : -100 });
+    gsap.set(["#NavBarAnimate"], { y : 50, opacity:0 });
     gsap.to(["#NavBarAnimate"], {
-      autoAlpha: 1,
-      x : 0,
-      stagger: 0.1,
-      ease:'power2.inOut',
-      duration:1.5
+      opacity: 1,
+      y: 0,
+      duration: 2,
+      ease: "back.inOut",
+      stagger: 0.5,
     })
 
   }, []);

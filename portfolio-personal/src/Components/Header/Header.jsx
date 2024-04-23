@@ -1,22 +1,22 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
-import "./Header.css";
-import Title from "./../../../public/img/titleBlue.png";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Title from "./../../../public/img/titleBlue.png";
+import "./Header.css";
+
 const Header = () => {
   const elementRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.set([".animation"], { y: 100, opacity: 0 });
+    gsap.set([".animation"], { y: 50, opacity: 0 });
 
     gsap.to([".animation"], {
       opacity: 1,
       y: 0,
-      stagger: 0.1,
-      ease: "power2.inOut",
-      duration: 1.5,
+      duration: 2,
+      ease: "back.inOut",
     });
 
     const tl = gsap.timeline({
@@ -36,17 +36,17 @@ const Header = () => {
     });
   }, []);
 
-
   return (
     <Flex
       id="backgroundImage"
       w={"100%"}
-      h={{ base: "750px", md: "750px", lg: "600px", xl: "950px" }}
+      h={'auto'}
       flexDirection={"row"}
       justifyContent={"center"}
       alignItems={"center"}
       ref={elementRef}
-      mb={"50px"}
+      py={{base:'20vh', md:'30vh', '2xl':'25vh'}}
+      position={"relative"}
     >
       <Flex
         className="animation"
@@ -71,7 +71,7 @@ const Header = () => {
             p={{ base: "5px 10px", sm: "5px 15px" }}
             letterSpacing={"1px"}
           >
-            Hello! I&apos;m Agustin
+            Hello, I&apos;m Agustin
           </Text>
         </Box>
         <Box m={"0px 30px"}>
@@ -80,18 +80,22 @@ const Header = () => {
         <Box m={"0px 30px"} display={"flex"} justifyContent={"center"}>
           <Text
             as={"p"}
-            w={{ base: "auto", sm: "70%", md: "70%", lg: "55%", xl: "55%" }}
+            w={{ base: "100%", sm: "70%", md: "70%", lg: "40%", xl: "40%" }}
             color={"#959499"}
-            fontSize={{ base: "lg", sm: "lg", md: "xl", xl: "20px" }}
+            fontSize={{ base: "xl", sm: "lg", md: "xl", xl: "20px" }}
             textAlign={"center"}
             fontWeight={500}
-            letterSpacing={"1px"}
+            letterSpacing={{ base: "0px", lg: "1px" }}
           >
-            Welcome to my personal portfolio! Here, you will find a compilation
-            of my projects, achievements, and skills. From web designs <br /> to
-            innovative solutions.
+            Welcome to my personal portfolio! Here you&apos;ll find a
+            compilation of About Me, my skills, projects, and more. From web
+            designs to innovative solutions
           </Text>
         </Box>
+        <Box>
+
+        </Box>
+
       </Flex>
     </Flex>
   );

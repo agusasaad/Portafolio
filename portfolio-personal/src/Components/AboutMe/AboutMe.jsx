@@ -1,10 +1,11 @@
 import "./AboutMe.css";
-import { Box, useBreakpointValue } from "@chakra-ui/react";
+import { Box} from "@chakra-ui/react";
 import HeaderAB from "./ComponentAbout/HeaderAB";
 import CarruselAB from "./ComponentAbout/CarruselAB";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 
 const AboutMe = () => {
   const elementRef = useRef(null);
@@ -16,7 +17,7 @@ const AboutMe = () => {
       scrollTrigger: {
         trigger: elementRef.current,
         // markers:true,
-        start: "top+=5%",
+        start: "top+=15%",
         end: "center",
         scrub: true,
         toggleActions: "restart pause reverse pause",
@@ -29,26 +30,17 @@ const AboutMe = () => {
     });
   }, []);
 
-  const showNavBar = useBreakpointValue({
-    base: true,
-    xs: true,
-    sm: true,
-    md: true,
-    lg: false,
-    xl: false,
-    full: false,
-  });
-
   return (
     <Box
-      id={!showNavBar ? "background" : undefined}
-      className={showNavBar ? "background" : undefined}
+      id="background"
       w={"100%"}
       h={"auto"}
       display={"flex"}
       flexDirection={"column"}
       justifyContent={"center"}
-      py={{ base: "0px", md: "200px", lg: "200px", xl: "200px" }}
+      py={'20vh'}
+      mb={'100px'}
+      position={"relative"}
       ref={elementRef}
     >
       <HeaderAB />
@@ -58,3 +50,4 @@ const AboutMe = () => {
 };
 
 export default AboutMe;
+

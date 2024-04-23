@@ -1,4 +1,5 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import avatar from "./../../../../public/img/avatar.png";
 import "../AboutMe.css";
 
 const HeaderAB = () => {
@@ -10,31 +11,31 @@ const HeaderAB = () => {
         flexDirection={"column"}
         justifyContent={"center"}
         alignItems={"center"}
-        gap={1}
+        zIndex={2}
       >
+        <Flex  w={"100%"} alignItems={'center'} flexDirection={'column'} gap={3}>
+        <Image id="imageAvatar" src={avatar} w={{ base: "60px", xl: "80px" }}></Image>
         <Text
           as={"p"}
+          letterSpacing={'1px'}
           fontSize={{ base: "xl", xl: "2xl" }}
-          fontWeight={300}
-          letterSpacing={"1px"}
-          color={"#704AEF"}
+          fontWeight={400}
+          color={"#9e8dfc"}
         >
-          overview
+          Introduction
         </Text>
+        </Flex>
 
         <Text
           className="fontHeader customFontHeader"
-          w={{ base: "80%", sm: "60%", md: "60%", lg: "50%", xl: "35%" }}
           as={"h2"}
-          fontSize={{ base: "5xl", sm: "6xl", md: "7xl", xl: "8xl" }}
+          fontSize={{ base: "6xl", sm: "6xl", md: "7xl", xl: "8xl" }}
           fontWeight={800}
           letterSpacing={{ base: "-3px", xl: "-4px" }}
-          lineHeight={{ base: "60px", md: "70px", xl: "100px" }}
           color={"#FFFFFF"}
           textAlign={"center"}
-          pb={{ base: "20px", xl: "30px" }}
         >
-          About me and my skills
+          About me
         </Text>
 
         <Text
@@ -43,13 +44,15 @@ const HeaderAB = () => {
           fontSize={"xl"}
           fontWeight={500}
           color={"#8B8B8B"}
-          letterSpacing={"1px"}
-          w={{ base: "90%", sm: "75%", lg: "50%", xl: "30%" }}
+          letterSpacing={{ base: "0px", lg: "1px"}}
+          w={{ base: "90vw", sm:'70vw', md:'60vw', lg:'50vw', xl:'30vw', '2xl': '30vw' }}
           textAlign={"center"}
+        
         >
-          I’m a Full Stack developer, specializing in Front End development for
-          the past 2 years. I&lsquo;m passionate about creating impactful and
-          functional user interfaces.
+          I&apos;m a full stack developer with two years of experience, focusing on
+          front end development. I enjoy styling and crafting responsive
+          websites, with a passion for creating intuitive and visually appealing
+          user interfaces.
         </Text>
       </Box>
     </>
