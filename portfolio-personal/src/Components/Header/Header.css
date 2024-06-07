@@ -1,6 +1,22 @@
-#backgroundImage {
-  background-image: url('./../../../public/img/FondoAbout.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+@font-face {
+  font-family: "AvenirNextBold";
+  src: url("./../../assets/Fonts/AvenirNext-Bold.ttf") format("woff2"),
+    url("./../../assets/Fonts/AvenirNext-Bold.ttf") format("woff"),
+    url("./../../assets/Fonts/AvenirNext-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#fontTitle {
+  font-family: "AvenirNextBold", sans-serif;
+}
+
+.gradientText {
+  background: linear-gradient(
+    86deg,
+    rgba(109, 60, 254, 1) 12%,
+    rgb(158, 40, 255) 78%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

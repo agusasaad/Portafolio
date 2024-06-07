@@ -68,9 +68,7 @@ const MenuNav = () => {
             <MenuButton
               as={Button}
               rightIcon={<IoMdArrowDropdown />}
-              bg={"rgb(5, 5, 5)"}
-              border={'1px'}
-              borderColor={"#171717"}
+              bg={'transparent'}
               color={"white"}
               _hover={"none"}
             >
@@ -100,11 +98,9 @@ const MenuNav = () => {
             <MenuButton
               as={Button}
               rightIcon={<IoMdArrowDropdown />}
-              bg={"rgb(5, 5, 5)"}
-              border={'1px'}
-              borderColor={"#171717"}
+              bg={'transparent'}
               color={"white"}
-              _hover={"none"}
+              _hover={{ bg: "black", color: "white"}}
             >
               Menu
             </MenuButton>

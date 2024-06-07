@@ -7,7 +7,7 @@ const Particles = () => {
 
   useEffect(() => {
     const createParticles = () => {
-      const numParticles = 50; // Número de partículas
+      const numParticles = 150; // Número de partículas
       const particlesContainer = particlesContainerRef.current;
       const { width, height } = particlesContainer.getBoundingClientRect(); // Obtenemos las dimensiones del contenedor
 
@@ -41,7 +41,7 @@ const Particles = () => {
   }, []);
 
   return (
-    <Box w={"100vw"} h={"100vh"} display={'flex'} position={'absolute'} >
+    <Box w={"100%"} h={"100%"} display={'flex'} position={'absolute'} zIndex={0} id='particles'>
       <div ref={particlesContainerRef} style={{ width: '100%', height: '100%', position: 'relative' }}></div>
       {/* eslint-disable-next-line react/no-unknown-property */}
       <style jsx>{`

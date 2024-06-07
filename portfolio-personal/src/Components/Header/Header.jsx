@@ -1,103 +1,145 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Title from "./../../../public/img/titleBlue.png";
+import Skill from "../Skill";
+import background from "./../../../public/img/FondoAbout.jpg";
 import "./Header.css";
 
 const Header = () => {
-  const elementRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const titleHeaderRef = useRef(null);
+  const descriptionHeaderRef = useRef(null);
+  const carrucelRef = useRef(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.set([".animation"], { y: 50, opacity: 0 });
+    gsap.set(
+      [
+        subtitleRef.current,
+        titleHeaderRef.current,
+        descriptionHeaderRef.current,
+        carrucelRef.current,
+      ],
+      { y: 100, opacity: 0 }
+    );
 
-    gsap.to([".animation"], {
-      opacity: 1,
-      y: 0,
-      duration: 2,
-      ease: "back.inOut",
-    });
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: elementRef.current,
-        // markers: true,
-        start: "top",
-        end: "bottom-=50%",
-        scrub: true,
-        toggleActions: "restart pause reverse pause",
-      },
-    });
-
-    tl.to(elementRef.current, {
-      opacity: 0,
-      duration: 1,
-    });
+    gsap.to(
+      [
+        subtitleRef.current,
+        titleHeaderRef.current,
+        descriptionHeaderRef.current,
+        carrucelRef.current,
+      ],
+      {
+        opacity: 1,
+        y: 0,
+        ease: "power3",
+        duration: 1.5,
+        stagger: 0.3,
+      }
+    );
   }, []);
 
   return (
-    <Flex
-      id="backgroundImage"
+    <Box
       w={"100%"}
-      h={'auto'}
-      flexDirection={"row"}
+      maxWidth={'1700px'}
+      h={"auto"}
+      overflow={'visible'}
+      bgImage={background}
+      bgSize={"cover"}
+      bgPosition={"center"}
+      bgRepeat={"no-repeat"}
+      placeContent={'center'}
+      display={"flex"}
+      flex={'0 0 auto'}
+      flexFlow={'column'}
       justifyContent={"center"}
       alignItems={"center"}
-      ref={elementRef}
-      py={{base:'20vh', md:'30vh', '2xl':'25vh'}}
-      position={"relative"}
+      py={{ base: "200px", md: "300px" }}
+      zIndex={1}
     >
       <Flex
-        className="animation"
-        display={"flex"}
+        w={'100%'}
         flexDirection={"column"}
-        justifyContent={"center"}
         alignItems={"center"}
-        w={"auto"}
-        h={"auto"}
+        rowGap={"20px"}
       >
-        <Box display={"flex"} justifyContent={"center"} mb={"20px"}>
+        <Text
+          ref={subtitleRef}
+          color={"white"}
+          fontSize={{ base: "lg", xl: "xl", "2xl": "2xl" }}
+          fontWeight={400}
+          w={"auto"}
+          lineHeight={"none"}
+        >
+          Hi I&apos;m Agustin &#128075;
+        </Text>
+        <Flex
+          ref={titleHeaderRef}
+          flexDirection="column"
+          alignItems="center"
+          lineHeight="none"
+        >
           <Text
-            color={"white"}
-            fontSize={{ base: "sm", sm: "md", md: "lg", xl: "lg" }}
-            fontWeight={200}
-            w={"auto"}
-            textAlign={"center"}
-            border={"1px"}
-            borderColor={"#171717"}
-            bg={"rgb(5, 5, 5)"}
-            borderRadius={"20px"}
-            p={{ base: "5px 10px", sm: "5px 15px" }}
-            letterSpacing={"1px"}
+            id="fontTitle"
+            className="gradientText"
+            fontSize={{
+              base: "85px",
+              sm: "120px",
+              md:"140px",
+              lg:'150px',
+              "2xl": "150px",
+            }}
+            letterSpacing={{
+              base: "-6px",
+              sm: "-8px",
+              md: "-9px",
+              lg: "-10px",
+              xl: "-10px",
+            }}
           >
-            Hello, I&apos;m Agustin
+            FrontEnd
           </Text>
-        </Box>
-        <Box m={"0px 30px"}>
-          <Image src={Title} alt="Dan Abramov" w={"600px"} className="img" />
-        </Box>
-        <Box m={"0px 30px"} display={"flex"} justifyContent={"center"}>
           <Text
-            as={"p"}
-            w={{ base: "100%", sm: "70%", md: "70%", lg: "40%", xl: "40%" }}
-            color={"#959499"}
-            fontSize={{ base: "xl", sm: "lg", md: "xl", xl: "20px" }}
-            textAlign={"center"}
-            fontWeight={500}
-            letterSpacing={{ base: "0px", lg: "1px" }}
+            id="fontTitle"
+            fontSize={{
+              base: "45px",
+              sm: "55px",
+              md: "60px",
+              lg:'65px',
+              "2xl": "70px",
+            }}
+            letterSpacing={{
+              base: "-4px",
+              sm: "-4px",
+              md: "-5px",
+              lg: "-6px",
+              "2xl": "-5px",
+            }}
+            color="white"
           >
-            Welcome to my personal portfolio! Here you&apos;ll find a
-            compilation of About Me, my skills, projects, and more. From web
-            designs to innovative solutions
+            Developer.
           </Text>
-        </Box>
-        <Box>
-
-        </Box>
-
+        </Flex>
+        <Text
+          ref={descriptionHeaderRef}
+          as={"p"}
+          color={"#9B9DB4"}
+          fontSize={{ base: "md", lg: "xl" }}
+          fontWeight={500}
+          textAlign={"center"}
+          mx={'25px'}
+          mb={'50px'}
+          maxW={'510px'}
+          minW={'200px'}
+        >
+          Full Stack Developer from Córdoba, Argentina. I specialize
+          in Front end development, with experience in creating efficient and
+          visually attractive user interfaces.
+        </Text>
+        <Skill ref={carrucelRef} />
       </Flex>
-    </Flex>
+    </Box>
   );
 };
 
