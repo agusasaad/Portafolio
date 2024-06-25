@@ -31,16 +31,13 @@ const CardsProjects = forwardRef((_props, ref) => {
 
   return (
     <Box
-      id="cardProjects"
-      w={"100%"}
       ref={ref}
-      display={"flex"}
-      flexDirection={"row"}
-      flexWrap={"wrap"}
-      columnGap={"30px"}
-      rowGap={"30px"}
-      alignItems={"center"}
-      justifyContent={"center"}
+      className="cardProjects"
+      w={"100%"}
+      maxW={"1100px"}
+      display={"grid"}
+      gridTemplateColumns={{ base: "auto", lg: "1fr 1fr" }}
+      gap={"30px 20px"}
     >
       {Projects.map((project, index) => (
         <Flex
@@ -49,38 +46,47 @@ const CardsProjects = forwardRef((_props, ref) => {
           rowGap={"10px"}
           onClick={() => openModal(project)}
           cursor={"pointer"}
-          opacity={"100%"}
         >
           {!loadedImages[index] && (
             <Skeleton height="500px" width="550px" borderRadius="10px" />
           )}
-          <Image
-            src={project.imageCard}
-            w={{xl:"550px", '2xl':'550px'}}
-            h={"auto"}
-            borderRadius={"10px"}
-            onLoad={() => handleImageLoad(index)}
-            display={loadedImages[index] ? "block" : "none"}
-          />
-          <Flex justifyContent={"space-between"} alignItems={"center"}>
-            <Text
-              as={"h4"}
-              color={"white"}
-              fontSize={{ base: "xl", lg: "2xl" }}
-            >
-              {project.name}
-            </Text>
-            <Text
-              as={"p"}
-              color={"#9B9DB4"}
-              fontSize={{ base: "md", lg: "20px" }}
-              fontWeight={500}
-            >
-              {project.cargo}
-            </Text>
+          <Flex flexDirection={"column"} rowGap={"10px"}>
+            <Flex overflow={"hidden"} borderRadius={"10px"}>
+              <Image
+                as={'img'}
+                borderRadius={"10px"}
+                src={project.imageCard}
+                w={{ base: "100%", xl: "550px" }}
+                transition={"transform 0.3s ease-in-out"}
+                transform={"scale(1)"}
+                _hover={{ transform: "scale(1.1)" }}
+                onLoad={() => handleImageLoad(index)}
+                display={loadedImages[index] ? "block" : "none"}
+              ></Image>
+            </Flex>
+            <Flex justifyContent={"space-between"} alignItems={"center"}>
+              <Text
+                className="Titles"
+                as={"h4"}
+                color={"white"}
+                fontSize={{ base: "xl", lg: "2xl" }}
+                letterSpacing={"-1px"}
+              >
+                {project.name}
+              </Text>
+              <Text
+                as={"p"}
+                color={"#9B9DB4"}
+                fontSize={{ base: "md", lg: "lg" }}
+                fontWeight={500}
+              >
+                {project.cargo}
+              </Text>
+            </Flex>
           </Flex>
         </Flex>
       ))}
+
       <ModalProject
         isOpen={isOpen}
         onOpen={onOpen}
@@ -92,3 +98,4 @@ const CardsProjects = forwardRef((_props, ref) => {
 });
 
 export default CardsProjects;
+

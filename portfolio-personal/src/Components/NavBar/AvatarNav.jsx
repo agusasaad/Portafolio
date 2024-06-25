@@ -7,18 +7,19 @@ const AvatarNav = () => {
   const circleRef = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline({ repeat: -1 });
-    tl.to(circleRef.current, {
-      duration: 1,
-      opacity: 0.4,
-      ease: "power1.inOut",
-    }).to(circleRef.current, { duration: 1, opacity: 1, ease: "power1.inOut" });
+    gsap.to(circleRef.current, {
+      scale: 2.5,
+      opacity: 0,
+      ease:'power1',
+      repeat:-1,
+      duration:1.3
+    });
   }, []);
 
   return (
     <>
       <Flex
-        p={"10px"}
+        p={"20px 10px"}
         justifyContent={"flex-start"}
         alignItems={"center"}
         justifyItems={"flex-start"}
@@ -44,20 +45,29 @@ const AvatarNav = () => {
         >
           <Text
             fontWeight={500}
-            color={"aliceblue"}
+            color={"white"}
             fontSize={{ base: "sm", xl: "17px" }}
           >
             Agustin Asaad
           </Text>
           <Link to={"https://www.linkedin.com/in/agustin-asaad/"}>
             <Flex alignItems={"center"} gap={1}>
-              <Box
-                w={"10px"}
-                h={"10px"}
-                borderRadius={"50%"}
-                bg={"#47AC53"}
-                ref={circleRef}
-              ></Box>
+              <Flex position={"relative"}>
+                <Box
+                  w={"7px"}
+                  h={"7px"}
+                  borderRadius={"50%"}
+                  bg={"#47AC53"}
+                ></Box>
+                <Box
+                  w={"7px"}
+                  h={"7px"}
+                  borderRadius={"50%"}
+                  bg={"#47AC53"}
+                  position={"absolute"}
+                  ref={circleRef}
+                ></Box>
+              </Flex>
               <Text
                 background={"transparent"}
                 fontSize={{ base: "xs", xl: "md" }}

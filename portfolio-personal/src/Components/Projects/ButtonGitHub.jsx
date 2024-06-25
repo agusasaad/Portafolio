@@ -70,12 +70,12 @@ const ButtonGitHub = () => {
         <Link to={"https://github.com/agusasaad?tab=repositories"}>
           <Button
             mt={"18px"}
-            fontWeight={500}
+            fontWeight={600}
             color={"black"}
             size={"lg"}
             borderRadius={"30px"}
           >
-            Visit My Github
+            Visit Github
           </Button>
         </Link>
       </Flex>

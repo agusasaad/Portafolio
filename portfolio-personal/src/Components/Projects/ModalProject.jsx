@@ -83,20 +83,20 @@ const ModalProject = ({ isOpen, onClose, modalInfo }) => {
                   {modalInfo.cargo}
                 </Text>
                 <Text
-                  as={"h2"}
-                  fontSize={{ base: "5xl", "2xl": "7xl" }}
-                  fontWeight={600}
+                  className="Titles"
+                  as={"h3"}
+                  fontSize={{ base: "35px", lg: "5xl" }}
+                  fontWeight={400}
                   color={"white"}
                   letterSpacing={"-2px"}
                 >
                   {modalInfo.name}
                 </Text>
                 <Text
-                  
-                   as={"p"}
-                   color={"#9B9DB4"}
-                   fontSize={{base:'md', 'lg':"20px"}}
-                   fontWeight={500}
+                  as={"p"}
+                  color={"#9B9DB4"}
+                  fontSize={{ base: "md", lg: "20px" }}
+                  fontWeight={500}
                 >
                   {modalInfo.parrafo}
                 </Text>
@@ -107,10 +107,10 @@ const ModalProject = ({ isOpen, onClose, modalInfo }) => {
                     Responsibilities
                   </Text>
                   <Text
-                     as={"p"}
-                     color={"#9B9DB4"}
-                     fontSize={{base:'md', 'lg':"20px"}}
-                     fontWeight={500}
+                    as={"p"}
+                    color={"#9B9DB4"}
+                    fontSize={{ base: "md", lg: "20px" }}
+                    fontWeight={500}
                   >
                     {modalInfo.parrafoDos}
                   </Text>
@@ -120,10 +120,10 @@ const ModalProject = ({ isOpen, onClose, modalInfo }) => {
                     Technologies
                   </Text>
                   <Text
-                     as={"p"}
-                     color={"#9B9DB4"}
-                     fontSize={{base:'md', 'lg':"20px"}}
-                     fontWeight={500}
+                    as={"p"}
+                    color={"#9B9DB4"}
+                    fontSize={{ base: "md", lg: "20px" }}
+                    fontWeight={500}
                   >
                     {modalInfo.technolgies}
                   </Text>
@@ -165,11 +165,7 @@ const ModalProject = ({ isOpen, onClose, modalInfo }) => {
                   </Button>
                 </Link>
               </Flex>
-              <Flex
-                justifyContent="center"
-                alignItems="center"
-                width="100%"
-              >
+              <Flex justifyContent="center" alignItems="center" width="100%">
                 <Box width="100%">
                   <Carousel {...carouselSettings}>
                     {modalInfo.ImageCarrucel?.map((image, index) => (

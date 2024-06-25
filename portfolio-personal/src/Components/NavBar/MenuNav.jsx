@@ -1,55 +1,57 @@
-import { useRef } from "react";
 import {
-  Avatar,
-  Box,
   Button,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
-  DrawerHeader,
   DrawerOverlay,
   Flex,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
   Text,
   useBreakpointValue,
   useDisclosure,
 } from "@chakra-ui/react";
+import { useRef } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { AiOutlineUser } from "react-icons/ai";
-import { LiaToolsSolid } from "react-icons/lia";
-import { GrProjects } from "react-icons/gr";
-import { RiContactsLine } from "react-icons/ri";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa6";
-import { FaXTwitter } from "react-icons/fa6";
-import imgProfile from "../../../public/img/imgProfile.jpg";
-import { IoMdArrowDropdown } from "react-icons/io";
 
-const MenuNav = () => {
-
+// eslint-disable-next-line react/prop-types
+const MenuNav = ({ home, project, about, contact }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
-
 
   const showNavBar = useBreakpointValue({
     base: true,
     xs: true,
     sm: true,
-    md: false,
-    lg: false,
+    md: true,
+    lg: true,
     xl: false,
     full: false,
   });
 
-  
+  const handleScroll = (ref) => {
+    onClose();
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const navigate = [
+    { name: "Home", ref: home },
+    { name: "About me", ref: about },
+    { name: "Projects", ref: project },
+    { name: "Contact", ref: contact },
+  ];
+  const hoverStyles = {
+    "& .link-item:first-of-type": {
+      transform: "translateY(-26px)",
+    },
+    "& .link-item:nth-of-type(2)": {
+      transform: "translateY(-26px)",
+    },
+  };
+
   return (
     <>
       {showNavBar && (
-        <Flex  h={'auto'} pt={'10px'}>
+        <Flex h={"auto"} p={"25px 5px"}>
           <Button
             ref={btnRef}
             onClick={onOpen}
@@ -63,66 +65,51 @@ const MenuNav = () => {
         </Flex>
       )}
       {!showNavBar && (
-        <Flex  justifyContent={"end"} gap={2} p={'15px 15px'}>
-          <Menu>
-            <MenuButton
-              as={Button}
-              rightIcon={<IoMdArrowDropdown />}
-              bg={'transparent'}
-              color={"white"}
-              _hover={"none"}
+        <Flex
+          p={"30px 30px"}
+          w={"30%"}
+          justifyContent={"end"}
+          gap={"40px"}
+          fontWeight={500}
+          color={"white"}
+          fontSize={"md"}
+        >
+          {navigate.map((link, index) => (
+            <Flex
+              key={index}
+              as={"ul"}
+              cursor={"pointer"}
+              onClick={() => handleScroll(link.ref)}
             >
-              Social
-            </MenuButton>
-            <MenuList
-              size={"xs"}
-              bg={"#171717"}
-              border={"1px"}
-              borderColor={"#232323"}
-            >
-              <MenuItem gap={5} bg={"#171717"} color={"white"}>
-                <FaLinkedin />
-                Linkedin
-              </MenuItem>
-              <MenuItem gap={5} bg={"#171717"} color={"white"}>
-                <FaGithub />
-                GitHub
-              </MenuItem>
-              <MenuItem gap={5} bg={"#171717"} color={"white"}>
-                <FaXTwitter />
-                Twitter
-              </MenuItem>
-            </MenuList>
-          </Menu>
-          <Menu>
-            <MenuButton
-              as={Button}
-              rightIcon={<IoMdArrowDropdown />}
-              bg={'transparent'}
-              color={"white"}
-              _hover={{ bg: "black", color: "white"}}
-            >
-              Menu
-            </MenuButton>
-            <MenuList bg={"#171717"} border={"none"}>
-              <MenuItem gap={5} bg={"#171717"} color={"white"}>
-                <AiOutlineUser />
-                About Me
-              </MenuItem>
-              <MenuItem gap={5} bg={"#171717"} color={"white"}>
-                <LiaToolsSolid />
-                Skill
-              </MenuItem>
-              <MenuItem gap={5} bg={"#171717"} color={"white"}>
-                <GrProjects />
-                Projects
-              </MenuItem>
-              <MenuItem gap={5} bg={"#171717"} color={"white"}>
-                <RiContactsLine />
-                Contact Me
-              </MenuItem>
-            </MenuList>
-          </Menu>
+              <Flex
+                as={"li"}
+                height={"26px"}
+                flexDirection={"column"}
+                overflow={"hidden"}
+                position={"relative"}
+                _hover={hoverStyles}
+              >
+                <Text
+                  as={"span"}
+                  className="link-item"
+                  transition={"transform 0.3s ease"}
+                >
+                  {link.name}
+                </Text>
+                <Text
+                  as={"span"}
+                  className="link-item"
+                  transition={"transform 0.3s ease"}
+                  color={"#cccccc"}
+                  position={"absolute"}
+                  top={"26px"}
+                  width={"100%"}
+                >
+                  {link.name}
+                </Text>
+              </Flex>
+            </Flex>
+          ))}
         </Flex>
       )}
 
@@ -131,155 +118,41 @@ const MenuNav = () => {
         placement="left"
         onClose={onClose}
         finalFocusRef={btnRef}
-        size={{ base: "xl", sm: "xl", md: "xs", lg: "xs", xl: "xs" }}
+        size={"xl"}
       >
         <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton color={"aliceblue"} />
-          <DrawerHeader bg={"#171717"}>
-            <Flex
-              justifyContent={"flex-start"}
-              alignItems={"center"}
-              justifyItems={"flex-start"}
-              p={"10px"}
-            >
-              <Avatar src={imgProfile} w={"60px"} h={"60px"} />
-              <Box
-                ml="3"
-                display={"flex"}
-                justifyContent={"center"}
-                flexDirection={"column"}
-              >
-                <Text
-                  fontWeight={500}
-                  color={"aliceblue"}
-                  fontSize={{ base: "sm", xl: "17px" }}
-                >
-                  Agustin Asaad
-                </Text>
-                <Text color={"aliceblue"} fontSize={"sm"} fontWeight={300}>
-                  Front End Developer
-                </Text>
-              </Box>
-            </Flex>
-          </DrawerHeader>
+        <DrawerContent
+          bg={"transparent"}
+          bgGradient={
+            "linear-gradient(rgb(2, 2, 2) 0%, rgba(2, 2, 2, 0.992) 11.7896%, rgba(2, 2, 2, 0.97) 21.3837%, rgba(2, 2, 2, 0.93) 29.12%, rgba(2, 2, 2, 0.88) 35.3363%, rgba(2, 2, 2, 0.82) 40.3704%, rgba(2, 2, 2, 0.75) 44.56%, rgba(2, 2, 2, 0.67) 48.243%, rgba(2, 2, 2, 0.59) 51.757%, rgba(2, 2, 2, 0.5) 55.44%, rgba(2, 2, 2, 0.416) 59.6296%, rgba(2, 2, 2, 0.325) 64.6637%, rgba(2, 2, 2, 0.24) 70.88%, rgba(2, 2, 2, 0.153) 78.6163%, rgba(2, 2, 2, 0.075) 88.2104%, rgba(2, 2, 2, 0) 100%);"
+          }
+        >
+          <DrawerCloseButton color={"aliceblue"} fontSize={"lg"} mt={"10px"} />
           <DrawerBody
-            borderTop={"1px"}
-            borderTopColor={"rgb(49, 49, 49)"}
-            bg={"#171717"}
-            pt={"30px"}
+            bg={"transparent"}
+            p={"70px 40px"}
             display={"flex"}
             flexDirection={"column"}
             gap={10}
           >
-            <Flex flexDirection={"column"} alignItems={"start"} gap={6}>
-              <Text color={"rgb(156, 156, 156)"}>Menu</Text>
-              <Button
-                bg={"transparent"}
-                w={"100%"}
-                color={"#959499"}
-                size={"lg"}
-                fontWeight={500}
-                display={"flex"}
-                justifyContent={"start"}
-                gap={5}
-                _hover={{ bg: "rgb(49, 49, 49)" }}
-              >
-                <AiOutlineUser />
-                About Me
-              </Button>
-
-              <Button
-                bg={"transparent"}
-                w={"100%"}
-                color={"#959499"}
-                size={"lg"}
-                fontWeight={500}
-                display={"flex"}
-                justifyContent={"start"}
-                gap={5}
-                _hover={{ bg: "rgb(49, 49, 49)" }}
-              >
-                <LiaToolsSolid />
-                Skill
-              </Button>
-
-              <Button
-                bg={"transparent"}
-                w={"100%"}
-                color={"#959499"}
-                size={"lg"}
-                fontWeight={500}
-                display={"flex"}
-                justifyContent={"start"}
-                gap={5}
-                _hover={{ bg: "rgb(49, 49, 49)" }}
-              >
-                <GrProjects />
-                Projects
-              </Button>
-
-              <Button
-                bg={"transparent"}
-                w={"100%"}
-                color={"#959499"}
-                size={"lg"}
-                fontWeight={500}
-                display={"flex"}
-                justifyContent={"start"}
-                gap={5}
-                _hover={{ bg: "rgb(49, 49, 49)" }}
-              >
-                <RiContactsLine />
-                Contact
-              </Button>
-            </Flex>
-            <Flex flexDirection={"column"} alignItems={"start"} gap={6}>
-              <Text color={"rgb(156, 156, 156)"}>Social</Text>
-              <Button
-                bg={"transparent"}
-                w={"100%"}
-                color={"#959499"}
-                size={"lg"}
-                fontWeight={500}
-                display={"flex"}
-                justifyContent={"start"}
-                gap={5}
-                _hover={{ bg: "rgb(49, 49, 49)" }}
-              >
-                <FaLinkedin />
-                Linkedin
-              </Button>
-
-              <Button
-                bg={"transparent"}
-                w={"100%"}
-                color={"#959499"}
-                size={"lg"}
-                fontWeight={500}
-                display={"flex"}
-                justifyContent={"start"}
-                gap={5}
-                _hover={{ bg: "rgb(49, 49, 49)" }}
-              >
-                <FaGithub />
-                GitHub
-              </Button>
-
-              <Button
-                bg={"transparent"}
-                w={"100%"}
-                color={"#959499"}
-                size={"lg"}
-                fontWeight={500}
-                display={"flex"}
-                justifyContent={"start"}
-                gap={5}
-                _hover={{ bg: "rgb(49, 49, 49)" }}
-              >
-                <FaXTwitter />
-                Twitter
-              </Button>
+            <Flex flexDirection={"column"} alignItems={"start"} gap={"20px"}>
+              {navigate.map((link, index) => (
+                <Text
+                  key={index}
+                  as={"li"}
+                  bg={"transparent"}
+                  color={"white"}
+                  fontSize={"3xl"}
+                  fontWeight={500}
+                  listStyleType={"none"}
+                  cursor={"pointer"}
+                  transition={"0.3s ease-in-out"}
+                  _hover={{ fontSize: "4xl" }}
+                  onClick={() => handleScroll(link.ref)}
+                >
+                  {link.name}
+                </Text>
+              ))}
             </Flex>
           </DrawerBody>
         </DrawerContent>

@@ -1,49 +1,137 @@
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
-import AvatarImage from "./../../../public/img/avatar.png";
+import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./AboutMe.css";
+import { useEffect, useRef } from "react";
+import SpinninText from "./SpinninText";
 
 const AboutMe = () => {
+  const containerAbout = useRef(null);
+  const imageProfile = useRef(null);
+  const titleAbout = useRef(null);
+  const aboutme = useRef(null)
+  const button = useRef(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animación específica para imageProfile
+    gsap.from(imageProfile.current, {
+      opacity: 0,
+      scale: 0.2,
+      ease: "power2",
+      duration: 1.2,
+      // delay: 0.5,
+      scrollTrigger: {
+        trigger: containerAbout.current,
+        start: "top-=400 top",
+        end: "bottom top",
+        // markers: true,
+      },
+    });
+
+    // Animación general para los otros elementos
+    gsap.from(
+      [
+        titleAbout.current,
+        aboutme.current,
+        button.current,
+      ],
+      {
+        opacity: 0,
+        y: 100,
+        ease: "power2",
+        duration: 1.2,
+        stagger: 0.2,
+        delay: 0.5,
+        scrollTrigger: {
+          trigger: containerAbout.current,
+          start: "top-=400 top",
+          end: "bottom top",
+        },
+      }
+    );
+  }, []);
+
   return (
-    <Box w={"60%"} h={"100vh"} display={"flex"}>
-      <Flex w={"100%"} justifyContent={'space-between'}>
-      <Flex justifyContent={'center'} alignItems={'center'}>
-          <Image src={AvatarImage} w={'300px'}></Image>
-        </Flex>
-        <Flex w={'60%'} flexDirection={"column"} justifyContent={'center'}>
-          <Text color={"#9d8cf8"} fontSize={{ base: "md", xl: "xl" }}>
-            About Me
-          </Text>
-          <Text
-            id="FontProject"
-            fontSize={{ base: "40px", xl: "6xl" }}
-            fontWeight={400}
-            color={"white"}
-            letterSpacing={"-2px"}
-          >
-            Hello, I&apos;m
-          </Text>
-          <Text
-            id="FontProject"
-            fontSize={{ base: "40px", xl: "6xl" }}
-            fontWeight={400}
-            color={"white"}
-            letterSpacing={"-2px"}
-          >
-            Agustin Asaad
-          </Text>
-          <Text
+    <Box
+      ref={containerAbout}
+      w={"100%"}
+      h={"auto"}
+      display={"flex"}
+      flexDirection={"column"}
+      justifyContent={"center"}
+      alignItems={"center"}
+      pb={"200px"}
+      mx={"15px"}
+      gap={"15px"}
+    >
+      <SpinninText ref={imageProfile} />
+      <Flex>
+        <Text
+          className="Titles"
+          ref={titleAbout}
+          as={"h3"}
+          fontSize={{ base: "40px", lg: "5xl" }}
+          fontWeight={400}
+          color={"white"}
+          letterSpacing={"-2px"}
+          textAlign={"center"}
+        >
+          About Me
+        </Text>
+      </Flex>
+      <Flex
+        ref={aboutme}
+        textAlign={"center"}
+        w={"100%"}
+        flexDirection={"column"}
+        alignItems={"center"}
+        gap={"10px"}
+        maxW={"800px"}
+        minW={"200px"}
+      >
+        <Text
           as={"p"}
           color={"#9B9DB4"}
           fontSize={{ base: "md", lg: "20px" }}
           fontWeight={500}
-          >
-            I&apos;m a product designer, whose proficiency in web and mobile design
-            has lead me to work on projects for large companies as well. My
-            skillsets also extend into 3D visual development, something that you
-            will see frequently among my portfolio pieces!
-          </Text>
-        </Flex>
-        
+        >
+          Hi there, I&apos;m Agustin – a Front End developer.
+        </Text>
+        <Text
+          as={"p"}
+          color={"#9B9DB4"}
+          fontSize={{ base: "md", lg: "20px" }}
+          fontWeight={500}
+          style={{ textWrap: "balance" }}
+        >
+          In the past 2 years, I have developed a passion for designing and
+          creating web applications. I focus on delivering high-quality user
+          experiences, ensuring ease of use and user satisfaction.
+        </Text>
+        <Text
+          as={"p"}
+          color={"#9B9DB4"}
+          fontSize={{ base: "md", lg: "20px" }}
+          fontWeight={500}
+          style={{ textWrap: "balance" }}
+        >
+          I am motivated to continue learning and growing professionally,
+          looking for opportunities that allow me to develop my skills and
+          contribute to the success of the company I collaborate with.
+        </Text>
+      </Flex>
+      <Flex ref={button} justifyContent={"center"}>
+        <Button
+          mt={"10px"}
+          fontWeight={600}
+          color={"black"}
+          size={"lg"}
+          borderRadius={"30px"}
+        >
+          Curriculum vitae
+        </Button>
       </Flex>
     </Box>
   );

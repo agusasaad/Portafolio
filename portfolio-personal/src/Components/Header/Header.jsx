@@ -19,9 +19,8 @@ const Header = () => {
         descriptionHeaderRef.current,
         carrucelRef.current,
       ],
-      { y: 100, opacity: 0 }
+      { y: 100, opacity: 0, visibility: "hidden" }
     );
-
     gsap.to(
       [
         subtitleRef.current,
@@ -32,9 +31,11 @@ const Header = () => {
       {
         opacity: 1,
         y: 0,
-        ease: "power3",
+        visibility: "visible",
+        ease: "power3.out",
         duration: 1.5,
         stagger: 0.3,
+        delay: 0.5,
       }
     );
   }, []);
@@ -42,35 +43,31 @@ const Header = () => {
   return (
     <Box
       w={"100%"}
-      maxWidth={'1700px'}
       h={"auto"}
-      overflow={'visible'}
+      maxWidth={"1700px"}
       bgImage={background}
       bgSize={"cover"}
       bgPosition={"center"}
       bgRepeat={"no-repeat"}
-      placeContent={'center'}
       display={"flex"}
-      flex={'0 0 auto'}
-      flexFlow={'column'}
       justifyContent={"center"}
       alignItems={"center"}
-      py={{ base: "200px", md: "300px" }}
-      zIndex={1}
+      pt={{ base: "200px", xl: "300px" }}
+      pb={{ base: "200px", xl: "200px" }}
     >
       <Flex
-        w={'100%'}
+        w={"100%"}
         flexDirection={"column"}
         alignItems={"center"}
         rowGap={"20px"}
       >
         <Text
+          as={"span"}
           ref={subtitleRef}
           color={"white"}
           fontSize={{ base: "lg", xl: "xl", "2xl": "2xl" }}
           fontWeight={400}
           w={"auto"}
-          lineHeight={"none"}
         >
           Hi I&apos;m Agustin &#128075;
         </Text>
@@ -81,13 +78,14 @@ const Header = () => {
           lineHeight="none"
         >
           <Text
+            as={"h1"}
             id="fontTitle"
             className="gradientText"
             fontSize={{
               base: "85px",
               sm: "120px",
-              md:"140px",
-              lg:'150px',
+              md: "140px",
+              lg: "150px",
               "2xl": "150px",
             }}
             letterSpacing={{
@@ -101,12 +99,13 @@ const Header = () => {
             FrontEnd
           </Text>
           <Text
+            as={"h2"}
             id="fontTitle"
             fontSize={{
               base: "45px",
               sm: "55px",
               md: "60px",
-              lg:'65px',
+              lg: "65px",
               "2xl": "70px",
             }}
             letterSpacing={{
@@ -128,14 +127,14 @@ const Header = () => {
           fontSize={{ base: "md", lg: "xl" }}
           fontWeight={500}
           textAlign={"center"}
-          mx={'25px'}
-          mb={'50px'}
-          maxW={'510px'}
-          minW={'200px'}
+          mx={"25px"}
+          mb={"50px"}
+          maxW={"510px"}
+          minW={"200px"}
         >
-          Full Stack Developer from Córdoba, Argentina. I specialize
-          in Front end development, with experience in creating efficient and
-          visually attractive user interfaces.
+          Web Developer from Córdoba, Argentina. I specialize in Front
+          end development, with experience in creating efficient and visually
+          attractive user interfaces.
         </Text>
         <Skill ref={carrucelRef} />
       </Flex>
