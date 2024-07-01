@@ -48,7 +48,7 @@ const ButtonGitHub = () => {
         <Text
           className="customTextAboutme"
           as={"p"}
-          color={"#9B9DB4"}
+          color={"grey"}
           fontSize={{base:'md', 'lg':"20px"}}
           fontWeight={500}
           textAlign={"center"}
@@ -58,7 +58,7 @@ const ButtonGitHub = () => {
         <Text
           className="customTextAboutme"
           as={"p"}
-          color={"#9B9DB4"}
+          color={"grey"}
           fontSize={{base:'md', 'lg':"20px"}}
           fontWeight={500}
           textAlign={"center"}

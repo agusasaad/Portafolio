@@ -29,7 +29,6 @@ const SpinninText = ({ text }) => {
       <Flex position={"absolute"} w={"100%"} h={"100%"}>
         {text.split("").map((letter, index) => (
           <Text
-          className="Titles"
             as={"span"}
             key={index}
             position={"absolute"}

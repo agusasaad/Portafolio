@@ -12,21 +12,12 @@ import {
 } from "@chakra-ui/react";
 import { useRef } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const MenuNav = ({ home, project, about, contact }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
-
-  const showNavBar = useBreakpointValue({
-    base: true,
-    xs: true,
-    sm: true,
-    md: true,
-    lg: true,
-    xl: false,
-    full: false,
-  });
 
   const handleScroll = (ref) => {
     onClose();
@@ -34,11 +25,22 @@ const MenuNav = ({ home, project, about, contact }) => {
   };
 
   const navigate = [
-    { name: "Home", ref: home },
-    { name: "About me", ref: about },
-    { name: "Projects", ref: project },
-    { name: "Contact", ref: contact },
+    { name: "Home", navigate: "/", ref: home },
+    { name: "About me", navigate: "/#aboutme", ref: about },
+    { name: "Projects", navigate: "/#project", ref: project },
+    { name: "Contact", navigate: "/#contactme", ref: contact },
   ];
+
+  const showNavBar = useBreakpointValue({
+    base: true,
+    xs: true,
+    sm: true,
+    md: true,
+    lg: false,
+    xl: false,
+    full: false,
+  });
+
   const hoverStyles = {
     "& .link-item:first-of-type": {
       transform: "translateY(-26px)",
@@ -50,35 +52,21 @@ const MenuNav = ({ home, project, about, contact }) => {
 
   return (
     <>
-      {showNavBar && (
-        <Flex h={"auto"} p={"25px 5px"}>
-          <Button
-            ref={btnRef}
-            onClick={onOpen}
-            variant={"outline"}
-            border={"none"}
-            color={"aliceblue"}
-            _hover={"none"}
-          >
-            <RxHamburgerMenu fontSize={"35px"} />
-          </Button>
-        </Flex>
-      )}
       {!showNavBar && (
         <Flex
           p={"30px 30px"}
           w={"30%"}
           justifyContent={"end"}
-          gap={"40px"}
+          gap={"30px"}
           fontWeight={500}
           color={"white"}
           fontSize={"md"}
         >
           {navigate.map((link, index) => (
-            <Flex
+            <Link
               key={index}
-              as={"ul"}
-              cursor={"pointer"}
+              to={link.navigate}
+              style={{ cursor: "pointer" }}
               onClick={() => handleScroll(link.ref)}
             >
               <Flex
@@ -93,6 +81,7 @@ const MenuNav = ({ home, project, about, contact }) => {
                   as={"span"}
                   className="link-item"
                   transition={"transform 0.3s ease"}
+                  color={"white"}
                 >
                   {link.name}
                 </Text>
@@ -100,19 +89,32 @@ const MenuNav = ({ home, project, about, contact }) => {
                   as={"span"}
                   className="link-item"
                   transition={"transform 0.3s ease"}
-                  color={"#cccccc"}
                   position={"absolute"}
                   top={"26px"}
+                  color={"white"}
                   width={"100%"}
                 >
                   {link.name}
                 </Text>
               </Flex>
-            </Flex>
+            </Link>
           ))}
         </Flex>
       )}
-
+      {showNavBar && (
+        <Flex h={"auto"} p={"25px 0px"}>
+          <Button
+            ref={btnRef}
+            onClick={onOpen}
+            variant={"outline"}
+            border={"none"}
+            color={"white"}
+            _hover={"none"}
+          >
+            <RxHamburgerMenu fontSize={"35px"} />
+          </Button>
+        </Flex>
+      )}
       <Drawer
         isOpen={isOpen}
         placement="left"
@@ -137,21 +139,19 @@ const MenuNav = ({ home, project, about, contact }) => {
           >
             <Flex flexDirection={"column"} alignItems={"start"} gap={"20px"}>
               {navigate.map((link, index) => (
-                <Text
-                  key={index}
-                  as={"li"}
-                  bg={"transparent"}
-                  color={"white"}
-                  fontSize={"3xl"}
-                  fontWeight={500}
-                  listStyleType={"none"}
-                  cursor={"pointer"}
-                  transition={"0.3s ease-in-out"}
-                  _hover={{ fontSize: "4xl" }}
-                  onClick={() => handleScroll(link.ref)}
-                >
-                  {link.name}
-                </Text>
+                <a key={index} onClick={() => handleScroll(link.ref)}>
+                  <Text
+                    as={"li"}
+                    bg={"transparent"}
+                    color={"white"}
+                    fontSize={"3xl"}
+                    fontWeight={500}
+                    listStyleType={"none"}
+                    cursor={"pointer"}
+                  >
+                    {link.name}
+                  </Text>
+                </a>
               ))}
             </Flex>
           </DrawerBody>

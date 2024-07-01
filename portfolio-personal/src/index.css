@@ -10,7 +10,6 @@
   box-sizing: border-box;
   scrollbar-width: none;
   font-family: "Urbanist", sans-serif;
-  font-optical-sizing: auto;
 }
 
 
@@ -27,3 +26,4 @@
   .Titles {
     font-family: "Poppins", sans-serif;
   }
+  

@@ -1,5 +1,5 @@
 import { Box, Flex, useBreakpointValue } from "@chakra-ui/react";
-import { duplicateIcons } from "./Technologies";
+import { duplicateIcons } from "../Technologies";
 import { gsap } from "gsap";
 import { forwardRef, useEffect, useRef } from "react";
 

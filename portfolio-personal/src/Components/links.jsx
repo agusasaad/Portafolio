@@ -3,5 +3,3 @@ export const links = [
   { name: "GitHub", url: "https://github.com/agusasaad?tab=repositories" },
   { name: "Twitter", url: "https://twitter.com/agusasaad2" },
 ];
-
-

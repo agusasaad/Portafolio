@@ -5,21 +5,13 @@ import {
   Image,
   Text,
   Skeleton,
-  useDisclosure,
 } from "@chakra-ui/react";
-import { Projects } from "./InfoProjects";
-import ModalProject from "./ModalProject";
+import { projects } from "./InfoProjects";
+import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/display-name
 const CardsProjects = forwardRef((_props, ref) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [modalInfo, setModalInfo] = useState("");
   const [loadedImages, setLoadedImages] = useState([]);
-
-  const openModal = (infoModal) => {
-    setModalInfo(infoModal);
-    onOpen();
-  };
 
   const handleImageLoad = (index) => {
     setLoadedImages((prev) => {
@@ -36,66 +28,51 @@ const CardsProjects = forwardRef((_props, ref) => {
       w={"100%"}
       maxW={"1100px"}
       display={"grid"}
-      gridTemplateColumns={{ base: "auto", lg: "1fr 1fr" }}
+      gridTemplateColumns={{ base: "auto", md: "1fr 1fr" }}
+      placeContent={"center"}
       gap={"30px 20px"}
     >
-      {Projects.map((project, index) => (
-        <Flex
-          key={index}
+      {projects.map((project, index) => (
+        <Link key={index} to={`/detail/${project.id}`}>
+         <Flex
           flexDirection={"column"}
-          rowGap={"10px"}
-          onClick={() => openModal(project)}
           cursor={"pointer"}
-        >
-          {!loadedImages[index] && (
-            <Skeleton height="500px" width="550px" borderRadius="10px" />
-          )}
-          <Flex flexDirection={"column"} rowGap={"10px"}>
-            <Flex overflow={"hidden"} borderRadius={"10px"}>
-              <Image
-                as={'img'}
-                borderRadius={"10px"}
-                src={project.imageCard}
-                w={{ base: "100%", xl: "550px" }}
-                transition={"transform 0.3s ease-in-out"}
-                transform={"scale(1)"}
-                _hover={{ transform: "scale(1.1)" }}
-                onLoad={() => handleImageLoad(index)}
-                display={loadedImages[index] ? "block" : "none"}
-              ></Image>
-            </Flex>
-            <Flex justifyContent={"space-between"} alignItems={"center"}>
-              <Text
-                className="Titles"
-                as={"h4"}
-                color={"white"}
-                fontSize={{ base: "xl", lg: "2xl" }}
-                letterSpacing={"-1px"}
-              >
-                {project.name}
-              </Text>
-              <Text
-                as={"p"}
-                color={"#9B9DB4"}
-                fontSize={{ base: "md", lg: "lg" }}
-                fontWeight={500}
-              >
-                {project.cargo}
-              </Text>
-            </Flex>
+          rowGap={"10px"}
+          >
+            {!loadedImages[index] && (
+              <Skeleton height="500px" width="550px" borderRadius="10px" />
+            )}
+            <Image
+              src={project.imageCard}
+              w={"550px"}
+              borderRadius={"10px"}
+              onLoad={() => handleImageLoad(index)}
+              display={loadedImages[index] ? "block" : "none"}
+            ></Image>
+          <Flex justifyContent={"space-between"} alignItems={"center"}>
+            <Text
+              className="Titles"
+              as={"h4"}
+              color={"white"}
+              fontSize={{ base: "xl", lg: "2xl" }}
+              letterSpacing={"-1px"}
+            >
+              {project.name}
+            </Text>
+            <Text
+              as={"p"}
+              color={"grey"}
+              fontSize={{ base: "md", lg: "lg" }}
+              fontWeight={500}
+            >
+              {project.cargo}
+            </Text>
           </Flex>
         </Flex>
+        </Link>
       ))}
-
-      <ModalProject
-        isOpen={isOpen}
-        onOpen={onOpen}
-        onClose={onClose}
-        modalInfo={modalInfo}
-      />
     </Box>
   );
 });
 
 export default CardsProjects;
-

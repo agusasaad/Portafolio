@@ -41,7 +41,7 @@ const Footer = ({ home, project, about, contact }) => {
         p={"20px"}
       >
         <FooterText />
-        <SpinninText text="THANK YOU ✦ FOR VISITING ✦ " />
+        <SpinninText text="THANK YOU ✦ FOR YOUR VISIT ✦ " />
       </Flex>
     </Box>
   );

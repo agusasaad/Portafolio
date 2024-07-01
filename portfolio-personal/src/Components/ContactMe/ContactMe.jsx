@@ -1,6 +1,11 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Text
+} from "@chakra-ui/react";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { Link } from "react-router-dom";
 
 const ContactMe = () => {
   const carrucelContactMe = useRef(null);
@@ -25,7 +30,7 @@ const ContactMe = () => {
       duration: 30,
       ease: "none",
       repeat: -1,
-    })
+    });
   }, []);
 
   const onMouseEnter = (e) => {
@@ -37,21 +42,35 @@ const ContactMe = () => {
     const li = e.currentTarget.querySelectorAll("li");
     li.forEach((span) => (span.style.color = "white"));
   };
-  
 
   return (
-    <Box h={"auto"} w={"100%"} overflow={"hidden"} my={{base:'50px',lg:'100px'}}>
+    <Box
+      h={"auto"}
+      w={"100%"}
+      overflow={"hidden"}
+      my={{ base: "50px", lg: "100px" }}
+      pt={"50px"}
+    >
       <Flex w={"100%"} justifyContent={"flex-start"} alignItems={"center"}>
-        <a
+        <Link
           ref={carrucelContactMe}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
-          style={{display: "flex", flexDirection: "row", cursor: "pointer",}}
+          style={{ display: "flex", flexDirection: "row", cursor: "pointer" }}
+          to={'/contact'}
         >
           {contactMeRepet.map((element, index) => (
             <Flex key={index}>
               <ul style={{ display: "flex", alignItems: "center" }}>
-                <Text  as={'li'} listStyleType='none' color={"white"} fontSize={{base:"70px", lg:'150px'}} fontWeight={500} whiteSpace={"nowrap"} letterSpacing={"-1px"}>
+                <Text
+                  as={"li"}
+                  listStyleType="none"
+                  color={"white"}
+                  fontSize={{ base: "70px", lg: "150px" }}
+                  fontWeight={500}
+                  whiteSpace={"nowrap"}
+                  letterSpacing={"-1px"}
+                >
                   {element}
                 </Text>
                 {index < contactMeRepet.length - 1 && (
@@ -71,7 +90,7 @@ const ContactMe = () => {
               </ul>
             </Flex>
           ))}
-        </a>
+        </Link>
       </Flex>
     </Box>
   );

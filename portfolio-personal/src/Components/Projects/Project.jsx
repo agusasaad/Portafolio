@@ -42,7 +42,7 @@ const Project = () => {
       flexDir={"column"}
       alignItems={"center"}
       rowGap={{ base: "40px", lg: "70px" }}
-      pb={"190px"}
+      py={{base:"130px", md:"100px"}}
     >
       <Flex flexDirection={"column"} alignItems={"center"} ref={ProjectTitle}>
         <Text

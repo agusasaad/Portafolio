@@ -1,7 +1,7 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import Skill from "../Skill";
+import Skill from "./Skill";
 import background from "./../../../public/img/FondoAbout.jpg";
 import "./Header.css";
 
@@ -47,13 +47,13 @@ const Header = () => {
       maxWidth={"1700px"}
       bgImage={background}
       bgSize={"cover"}
-      bgPosition={"center"}
+      bgPosition={"50% 50%"}
       bgRepeat={"no-repeat"}
       display={"flex"}
       justifyContent={"center"}
       alignItems={"center"}
-      pt={{ base: "200px", xl: "300px" }}
-      pb={{ base: "200px", xl: "200px" }}
+      pt={{base:'180px', md:'250px'}}
+      pb={'120px'}
     >
       <Flex
         w={"100%"}
@@ -123,7 +123,7 @@ const Header = () => {
         <Text
           ref={descriptionHeaderRef}
           as={"p"}
-          color={"#9B9DB4"}
+          color={"grey"}
           fontSize={{ base: "md", lg: "xl" }}
           fontWeight={500}
           textAlign={"center"}

@@ -6,24 +6,26 @@ import { useEffect, useRef } from "react";
 
 // eslint-disable-next-line react/prop-types
 const NavBar = ({ home, project, about, contact }) => {
-
   //Ref Animaciones
   const navBarAnimate = useRef(null);
 
   //Animaciones GSAP
   useEffect(() => {
-    gsap.set(navBarAnimate.current, { y: -50, opacity: 0, visibility:'hidden' });
+    gsap.set(navBarAnimate.current, {
+      y: -50,
+      opacity: 0,
+      visibility: "hidden",
+    });
     gsap.to(navBarAnimate.current, {
       opacity: 1,
       y: 0,
       duration: 1.5,
       ease: "back.inOut",
       stagger: 0.5,
-      visibility:'visible',
-      delay:0.5,
+      visibility: "visible",
+      delay: 0.3,
     });
   }, []);
-  
 
   return (
     <Box
@@ -41,7 +43,7 @@ const NavBar = ({ home, project, about, contact }) => {
       zIndex={11}
     >
       <AvatarNav />
-      <MenuNav home={home} project={project} about={about} contact={contact} />
+      <MenuNav home={home} project={project} about={about} contact={contact}/>
     </Box>
   );
 };

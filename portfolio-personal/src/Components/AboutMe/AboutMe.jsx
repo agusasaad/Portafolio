@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./AboutMe.css";
 import { useEffect, useRef } from "react";
 import SpinninText from "./SpinninText";
+import { Link } from "react-router-dom";
 
 const AboutMe = () => {
   const containerAbout = useRef(null);
@@ -15,22 +16,18 @@ const AboutMe = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Animación específica para imageProfile
     gsap.from(imageProfile.current, {
       opacity: 0,
       scale: 0.2,
       ease: "power2",
       duration: 1.2,
-      // delay: 0.5,
       scrollTrigger: {
         trigger: containerAbout.current,
         start: "top-=400 top",
         end: "bottom top",
-        // markers: true,
       },
     });
 
-    // Animación general para los otros elementos
     gsap.from(
       [
         titleAbout.current,
@@ -62,9 +59,10 @@ const AboutMe = () => {
       flexDirection={"column"}
       justifyContent={"center"}
       alignItems={"center"}
-      pb={"200px"}
+      py={{base:"130px", md:"100px"}}
       mx={"15px"}
       gap={"15px"}
+
     >
       <SpinninText ref={imageProfile} />
       <Flex>
@@ -84,16 +82,16 @@ const AboutMe = () => {
       <Flex
         ref={aboutme}
         textAlign={"center"}
-        w={"100%"}
+        w={'100%'}
         flexDirection={"column"}
         alignItems={"center"}
         gap={"10px"}
-        maxW={"800px"}
+        maxW={{md:'600px', xl:'800px'}}
         minW={"200px"}
       >
         <Text
           as={"p"}
-          color={"#9B9DB4"}
+          color={"grey"}
           fontSize={{ base: "md", lg: "20px" }}
           fontWeight={500}
         >
@@ -101,7 +99,7 @@ const AboutMe = () => {
         </Text>
         <Text
           as={"p"}
-          color={"#9B9DB4"}
+          color={"grey"}
           fontSize={{ base: "md", lg: "20px" }}
           fontWeight={500}
           style={{ textWrap: "balance" }}
@@ -112,7 +110,7 @@ const AboutMe = () => {
         </Text>
         <Text
           as={"p"}
-          color={"#9B9DB4"}
+          color={"grey"}
           fontSize={{ base: "md", lg: "20px" }}
           fontWeight={500}
           style={{ textWrap: "balance" }}
@@ -123,15 +121,17 @@ const AboutMe = () => {
         </Text>
       </Flex>
       <Flex ref={button} justifyContent={"center"}>
-        <Button
-          mt={"10px"}
-          fontWeight={600}
-          color={"black"}
-          size={"lg"}
-          borderRadius={"30px"}
-        >
-          Curriculum vitae
-        </Button>
+        <Link to={'https://drive.google.com/file/d/14n6ZmOkh21orDe5k7ofD1ZUDrEdGtnAd/view'} title="URL GOOGLE DRIVE">
+          <Button
+            mt={"10px"}
+            fontWeight={600}
+            color={"black"}
+            size={"lg"}
+            borderRadius={"30px"}
+          >
+            Curriculum vitae
+          </Button> 
+        </Link>
       </Flex>
     </Box>
   );

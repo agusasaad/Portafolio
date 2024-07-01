@@ -1,18 +1,17 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { links } from "./links";
+import { links } from "../links";
 
 // eslint-disable-next-line react/prop-types
 const NavigateAndLink = ({ home, project, about, contact }) => {
 
-  const navigates = [
-    {NavigaTo:"Home", ref: home},
-    {NavigaTo:"About me", ref: about},
-    {NavigaTo:"Projects", ref: project},
-    {NavigaTo:"Contact", ref: contact},
+  const navigate = [
+    {name:"Home", ref: home},
+    {name:"About", ref: about},
+    {name:"Projects", ref: project},
+    {name:"Contact", ref: contact},
 
 ];
-
   const handleScroll = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
   };
@@ -35,8 +34,8 @@ const NavigateAndLink = ({ home, project, about, contact }) => {
         letterSpacing={"-1px"}
         gap={"20px"}
       >
-        {navigates.map((links, index) => (
-          <Link key={index} _hover={{ textDecoration: "none" }} onClick={() => handleScroll(links.ref)}>
+        {navigate.map((links, index) => (
+          <a key={index} onClick={() => handleScroll(links.ref)} style={{cursor:'pointer'}}>
             <Flex
               h={{ base: "27px", xl: "36px" }}
               flexDirection={"column"}
@@ -62,7 +61,7 @@ const NavigateAndLink = ({ home, project, about, contact }) => {
                 color={"#232323"}
                 transition={"transform 0.3s ease"}
               >
-                {links.NavigaTo}
+                {links.name}
               </Text>
               <Text
                 className="Titles link-item"
@@ -77,10 +76,10 @@ const NavigateAndLink = ({ home, project, about, contact }) => {
                 width={"100%"}
                 transition={"transform 0.3s ease"}
               >
-                {links.NavigaTo}
+                {links.name}
               </Text>
             </Flex>
-          </Link>
+          </a>
         ))}
       </Flex>
       <Flex flexDirection={{ base: "row", lg: "column" }} gap={"20px"}>
