@@ -14,21 +14,14 @@ import { useRef } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
 
-// eslint-disable-next-line react/prop-types
-const MenuNav = ({ home, project, about, contact }) => {
+const MenuNav = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
 
-  const handleScroll = (ref) => {
-    onClose();
-    ref.current.scrollIntoView({ behavior: "smooth" });
-  };
-
   const navigate = [
-    { name: "Home", navigate: "/", ref: home },
-    { name: "About me", navigate: "/#aboutme", ref: about },
-    { name: "Projects", navigate: "/#project", ref: project },
-    { name: "Contact", navigate: "/#contactme", ref: contact },
+    { name: "Home", navigate: "/"},
+    { name: "Projects", navigate: "/detail/1" },
+    { name: "Contact Me", navigate: "/contact" },
   ];
 
   const showNavBar = useBreakpointValue({
@@ -67,7 +60,6 @@ const MenuNav = ({ home, project, about, contact }) => {
               key={index}
               to={link.navigate}
               style={{ cursor: "pointer" }}
-              onClick={() => handleScroll(link.ref)}
             >
               <Flex
                 as={"li"}
@@ -139,7 +131,7 @@ const MenuNav = ({ home, project, about, contact }) => {
           >
             <Flex flexDirection={"column"} alignItems={"start"} gap={"20px"}>
               {navigate.map((link, index) => (
-                <a key={index} onClick={() => handleScroll(link.ref)}>
+                <Link key={index} to={link.navigate}>
                   <Text
                     as={"li"}
                     bg={"transparent"}
@@ -151,7 +143,7 @@ const MenuNav = ({ home, project, about, contact }) => {
                   >
                     {link.name}
                   </Text>
-                </a>
+                </Link>
               ))}
             </Flex>
           </DrawerBody>

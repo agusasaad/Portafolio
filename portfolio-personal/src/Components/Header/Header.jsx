@@ -44,7 +44,7 @@ const Header = () => {
     <Box
       w={"100%"}
       h={"auto"}
-      maxWidth={"1700px"}
+      maxWidth={"1100px"}
       bgImage={background}
       bgSize={"cover"}
       bgPosition={"50% 50%"}

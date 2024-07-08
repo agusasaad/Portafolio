@@ -1,5 +1,6 @@
 import { Box, Flex, Text, keyframes } from "@chakra-ui/react";
 import PropTypes from "prop-types";
+import { MdArrowOutward } from "react-icons/md";
 
 const SpinninText = ({ text }) => {
   const length = text.length;
@@ -36,8 +37,8 @@ const SpinninText = ({ text }) => {
             left={"50%"}
             transform={`rotate(${deg * index}deg)`}
             transformOrigin={"0 75px"}
-            fontSize={"12px"}
-            fontWeight={600}
+            fontSize={"13px"}
+            fontWeight={500}
             p={'2px'}
           >
             {letter}

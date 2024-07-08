@@ -21,10 +21,9 @@ const ButtonGitHub = () => {
         duration: 1.5,
         stagger: 0.3,
         scrollTrigger: {
-          trigger: containerButton.current,
-          start: "top-=500 50%",
-          end: "bottom 20%",
-          // markers:true
+          trigger: "#ContainerProject",
+          start: "center+=100",
+          end: "top",
         },
       }
     );
@@ -67,7 +66,7 @@ const ButtonGitHub = () => {
         </Text>
       </Flex>
       <Flex ref={buttonVisit}>
-        <Link to={"https://github.com/agusasaad?tab=repositories"}>
+        <Link to={"https://github.com/agusasaad?tab=repositories"} title="Link to my repository">
           <Button
             mt={"18px"}
             fontWeight={600}

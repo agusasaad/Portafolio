@@ -49,7 +49,6 @@ const ContactMe = () => {
       w={"100%"}
       overflow={"hidden"}
       my={{ base: "50px", lg: "100px" }}
-      pt={"50px"}
     >
       <Flex w={"100%"} justifyContent={"flex-start"} alignItems={"center"}>
         <Link

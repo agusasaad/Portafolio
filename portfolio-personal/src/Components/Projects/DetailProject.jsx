@@ -43,7 +43,7 @@ const DetailProject = () => {
     >
       <Flex
         w={{ sm: "75%", "2xl": "100%" }}
-        maxW={"1000px"}
+        maxW={"1100px"}
         flexDirection={"column"}
         gap={{ base: "20px", lg: "40px" }}
         mx={"15px"}
@@ -70,10 +70,10 @@ const DetailProject = () => {
           <Text
             className="Titles"
             as={"h3"}
-            fontSize={{ base: "3xl", lg: "6xl" }}
-            fontWeight={500}
+            fontSize={{ base: "4xl", md: "5xl" }}
+            fontWeight={400}
             color={"white"}
-            letterSpacing={{ base: "-1px", lg: "-4px" }}
+            letterSpacing={"-2px"}
           >
             {findProject.name}
           </Text>

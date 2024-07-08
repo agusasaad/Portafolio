@@ -24,19 +24,21 @@ const AvatarNav = () => {
         alignItems={"center"}
         justifyItems={"flex-start"}
       >
-        <Box
-          id="borderAvatar"
-          border={"2px"}
-          p={"5px"}
-          borderRadius={"50%"}
-          borderColor={"#704aef"}
-        >
-          <Avatar
-            src={imgProfile}
-            w={{ base: "40px", xl: "50px" }}
-            h={{ base: "40px", xl: "50px" }}
-          />
-        </Box>
+        <Link to={'./'} title="Home">
+          <Box
+            id="borderAvatar"
+            border={"2px"}
+            p={"5px"}
+            borderRadius={"50%"}
+            borderColor={"#704aef"}
+          >
+            <Avatar
+              src={imgProfile}
+              w={{ base: "40px", xl: "50px" }}
+              h={{ base: "40px", xl: "50px" }}
+            />
+          </Box>
+        </Link>
         <Box
           ml="3"
           display={"flex"}
@@ -50,7 +52,7 @@ const AvatarNav = () => {
           >
             Agustin Asaad
           </Text>
-          <Link to={"https://www.linkedin.com/in/agustin-asaad/"}>
+          <Link to={"https://www.linkedin.com/in/agustin-asaad/"} title="Link to my LinkedIn profile.">
             <Flex alignItems={"center"} gap={1}>
               <Flex position={"relative"}>
                 <Box

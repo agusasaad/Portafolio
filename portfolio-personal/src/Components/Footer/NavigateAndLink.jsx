@@ -1,21 +1,8 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { links } from "../links";
+import { navigate, links } from "../links";
 
-// eslint-disable-next-line react/prop-types
-const NavigateAndLink = ({ home, project, about, contact }) => {
-
-  const navigate = [
-    {name:"Home", ref: home},
-    {name:"About", ref: about},
-    {name:"Projects", ref: project},
-    {name:"Contact", ref: contact},
-
-];
-  const handleScroll = (ref) => {
-    ref.current.scrollIntoView({ behavior: "smooth" });
-  };
-
+const NavigateAndLink = () => {
 
   return (
     <Flex
@@ -35,7 +22,7 @@ const NavigateAndLink = ({ home, project, about, contact }) => {
         gap={"20px"}
       >
         {navigate.map((links, index) => (
-          <a key={index} onClick={() => handleScroll(links.ref)} style={{cursor:'pointer'}}>
+          <Link key={index} to={links.navigates}>
             <Flex
               h={{ base: "27px", xl: "36px" }}
               flexDirection={"column"}
@@ -79,7 +66,7 @@ const NavigateAndLink = ({ home, project, about, contact }) => {
                 {links.name}
               </Text>
             </Flex>
-          </a>
+          </Link>
         ))}
       </Flex>
       <Flex flexDirection={{ base: "row", lg: "column" }} gap={"20px"}>

@@ -12,9 +12,9 @@ import driverCard from "./../../../public/img/Drivers/DriverCard.png";
 import driversModal from "./../../../public/img/Drivers/headerModalDriver.jpg";
 import driversCapture_1 from "./../../../public/img/Drivers/Capture_1.jpg";
 
-import portfolioModal from "./../../../public/img/headerModalPortfolio.png";
-import portfolioCard from "./../../../public/img/cardPortfolio.png";
-import portfolioCapture_1 from "./../../../public/img/poiter.png.jpg";
+import portfolioModal from "./../../../public/img/Portfolio/headerModalPortfolio.png";
+import portfolioCard from "./../../../public/img/Portfolio/cardPortfolio.png";
+import portfolioCapture_1 from "./../../../public/img/Portfolio/imageRepresentPortfolio.jpg";
 
 
 export const projects = [

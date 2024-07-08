@@ -4,8 +4,7 @@ import AvatarNav from "./AvatarNav";
 import gsap from "gsap/all";
 import { useEffect, useRef } from "react";
 
-// eslint-disable-next-line react/prop-types
-const NavBar = ({ home, project, about, contact }) => {
+const NavBar = () => {
   //Ref Animaciones
   const navBarAnimate = useRef(null);
 
@@ -43,7 +42,7 @@ const NavBar = ({ home, project, about, contact }) => {
       zIndex={11}
     >
       <AvatarNav />
-      <MenuNav home={home} project={project} about={about} contact={contact}/>
+      <MenuNav/>
     </Box>
   );
 };
