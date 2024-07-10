@@ -10,7 +10,7 @@ import Footer from "./Components/Footer/Footer";
 function App() {
 
   return (
-    <Box bg={'white'} w={'100%'} display={'flex'} flexDirection={'column'} alignItems={'center'}>
+    <Box id="container" w={'100%'} display={'flex'} flexDirection={'column'} alignItems={'center'}>
       <NavBar />
         <Routes>
           <Route path="/" element={<Home />}></Route>

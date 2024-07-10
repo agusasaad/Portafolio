@@ -48,7 +48,7 @@ const ContactMe = () => {
       h={"auto"}
       w={"100%"}
       overflow={"hidden"}
-      my={{ base: "50px", lg: "100px" }}
+      py={{ base: "50px", lg: "100px" }}
     >
       <Flex w={"100%"} justifyContent={"flex-start"} alignItems={"center"}>
         <Link

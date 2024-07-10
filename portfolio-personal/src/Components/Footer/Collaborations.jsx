@@ -19,7 +19,7 @@ const Collaborations = () => {
           fontSize={{ base: "4xl", lg: "5xl" }}
           fontWeight={500}
           color={"black"}
-          letterSpacing={"-3px"}
+          letterSpacing={"-2px"}
           style={{ textWrap: "balance" }}
         >
           Let&apos;s start creating together
@@ -30,13 +30,13 @@ const Collaborations = () => {
           bg={"black"}
           color={"white"}
           fontSize={"20px"}
-          fontWeight={400}
+          fontWeight={500}
           borderRadius={"30px"}
           p={"30px"}
           display={'flex'}
           alignItems={'center'}
           gap={'3px'}
-          _hover={{ color: "grey" }}
+          _hover={{ bg: "#212121" }}
         >
           <Text>Email me</Text>
           <HiMiniArrowUpRight style={{ fontSize: "25px" }} />

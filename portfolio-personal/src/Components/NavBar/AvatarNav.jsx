@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import imgProfile from "../../../public/img/imgProfile.jpg";
-const AvatarNav = () => {
+const AvatarNav = ({setShowMenu}) => {
   const circleRef = useRef(null);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const AvatarNav = () => {
         alignItems={"center"}
         justifyItems={"flex-start"}
       >
-        <Link to={'./'} title="Home">
+        <Link to={'./'} title="Home" onClick={() => setShowMenu(false)}>
           <Box
             id="borderAvatar"
             border={"2px"}

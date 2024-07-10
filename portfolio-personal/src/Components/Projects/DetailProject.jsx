@@ -3,17 +3,23 @@ import { Link, useParams } from "react-router-dom";
 import { projects } from "./InfoProjects";
 import { FaGithub } from "react-icons/fa";
 import { CiLink } from "react-icons/ci";
-import { useEffect } from "react";
 import { gsap } from "gsap";
+import { useEffect } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 
 const DetailProject = () => {
   const { id } = useParams();
-  const findProject = projects.find((element) => Number(element.id) === Number(id));
+  const findProject = projects.find(
+    (element) => Number(element.id) === Number(id)
+  );
 
   useEffect(() => {
-    gsap.set(["#Animation"], { y: 100, opacity: 0, visibility: "hidden" });
+    const animations = gsap.set(["#Animation"], {
+      y: 100,
+      opacity: 0,
+      visibility: "hidden",
+    });
     gsap.to(["#Animation"], {
       opacity: 1,
       y: 0,
@@ -21,8 +27,12 @@ const DetailProject = () => {
       ease: "power2",
       duration: 1.3,
       stagger: 0.3,
-      delay: 0.5
+      delay: 0.5,
     });
+
+    return () => {
+      animations.kill();
+    };
   }, []);
 
   useEffect(() => {
@@ -38,8 +48,8 @@ const DetailProject = () => {
       alignItems={"center"}
       justifyContent={"center"}
       pt={{ base: "120px", md: "170px" }}
-      pb={"30px"}
-      zIndex={10}
+      pb={{ base: "25px", md: "100px" }}
+      zIndex={1000}
     >
       <Flex
         w={{ sm: "75%", "2xl": "100%" }}
@@ -206,12 +216,12 @@ const DetailProject = () => {
             </Link>
           ) : (
             <Link
-            to={`/detail/${findProject.id - 3}`}
-            style={{ display: "flex", alignItems: "center", gap: "10px" }}
-          >
-            <Text className="Titles">Next</Text>
-            <FaArrowRight />
-          </Link>
+              to={`/detail/${findProject.id - 3}`}
+              style={{ display: "flex", alignItems: "center", gap: "10px" }}
+            >
+              <Text className="Titles">Next</Text>
+              <FaArrowRight />
+            </Link>
           )}
         </Flex>
       </Flex>

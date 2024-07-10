@@ -11,13 +11,14 @@ import {
   Textarea,
   useToast,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { useRef } from "react";
-import emailjs from "@emailjs/browser";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import imgFormContact from "./../../../public/img/contact.jpg";
 
 const FormContact = () => {
+  const containerContact = useRef(null);
   const form = useRef();
   const toast = useToast();
   const [showSpinner, setShowSpinner] = useState(false);
@@ -40,7 +41,7 @@ const FormContact = () => {
     setShowSpinner(true);
 
     emailjs
-      .sendForm('default_service', 'template_4luuyes', form.current, {
+      .sendForm("default_service", "template_4luuyes", form.current, {
         publicKey: "AvKV6TnFtizcS_CD1",
       })
       .then(
@@ -62,7 +63,7 @@ const FormContact = () => {
             status: "error",
             duration: 5000,
             isClosable: true,
-            colorScheme:'red'
+            colorScheme: "red",
           });
         }
       )
@@ -93,8 +94,10 @@ const FormContact = () => {
     });
   }, []);
 
+
   return (
     <Box
+      ref={containerContact}
       w={"100%"}
       h={"auto"}
       bg={"black"}
@@ -103,7 +106,6 @@ const FormContact = () => {
       alignItems={"center"}
       py={{ base: "130px", lg: "200px" }}
       px={"20px"}
-      zIndex={10}
     >
       <Flex
         maxW={"1200px"}
@@ -164,6 +166,7 @@ const FormContact = () => {
                   name="user_name"
                   value={formData.user_name}
                   variant="unstyled"
+                  autoComplete="off"
                   bg={"#141414"}
                   border={"1px"}
                   borderColor={"#0f0f0f"}
@@ -186,6 +189,7 @@ const FormContact = () => {
                   name="user_email"
                   value={formData.user_email}
                   variant="unstyled"
+                  autoComplete="off"
                   bg={"#141414"}
                   border={"1px"}
                   borderColor={"#0f0f0f"}
@@ -227,7 +231,7 @@ const FormContact = () => {
                   borderRadius={"10px"}
                   _hover={{ bgColor: "#d6d6d6" }}
                   isLoading={showSpinner}
-                  loadingText='Sending'
+                  loadingText="Sending"
                 >
                   Get in touch
                 </Button>
