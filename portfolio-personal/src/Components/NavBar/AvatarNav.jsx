@@ -68,6 +68,8 @@ const AvatarNav = ({setShowMenu}) => {
                   bg={"#47AC53"}
                   position={"absolute"}
                   ref={circleRef}
+                  top={0}
+                  left={0}
                 ></Box>
               </Flex>
               <Text

@@ -1,9 +1,10 @@
-import { Box } from "@chakra-ui/react";
+import { Box} from "@chakra-ui/react";
 import Header from "./Components/Header/Header";
 import AboutMe from "./Components/AboutMe/AboutMe";
 import Project from "./Components/Projects/Project";
 import ContactMe from "./Components/ContactMe/ContactMe";
 import { useEffect} from "react";
+import './index.css'
 
 const Home = () => {
   useEffect(() => {

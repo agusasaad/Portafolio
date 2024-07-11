@@ -21,10 +21,12 @@ const AboutMe = () => {
       scale: 0.2,
       ease: "power2",
       duration: 1.2,
+      delay:0.2,
       scrollTrigger: {
         trigger: containerAbout.current,
         start: "top-=400 top",
         end: "bottom top",
+        // markers:true
       },
     });
 
@@ -65,18 +67,26 @@ const AboutMe = () => {
 
     >
       <SpinninText ref={imageProfile} />
-      <Flex>
+      <Flex ref={titleAbout} flexDirection={'column'} alignItems={'center'} mt={'10px'}>
+      <Text
+          as={"h4"}
+          color={"#9d8cf8"}
+          fontSize={{ base: "md", xl: "xl" }}
+          fontWeight={"500"}
+          textAlign={"center"}
+        >
+          About Me
+        </Text>
         <Text
           className="Titles"
-          ref={titleAbout}
           as={"h3"}
-          fontSize={{ base: "40px", lg: "5xl" }}
+          fontSize={{ base: "40px", lg: "45px" }}
           fontWeight={400}
           color={"white"}
           letterSpacing={"-2px"}
           textAlign={"center"}
         >
-          About Me
+          Who I am ?
         </Text>
       </Flex>
       <Flex

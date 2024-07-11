@@ -12,11 +12,9 @@
   font-family: "Urbanist", sans-serif;
 }
 
-html
- body {
-  background-color: white;
+html body {
+  background-color: black;
 }
-
 
 #linearGradientCarrucel {
   mask-image: radial-gradient(
@@ -24,11 +22,24 @@ html
     rgba(0, 0, 0, 1) 0%,
     rgba(0, 0, 0, 1) 10%,
     rgba(0, 0, 0, 0) 90%
-    );
+  );
+}
+
+/* Titulos */
+.Titles {
+  font-family: "Poppins", sans-serif;
+}
+
+.color-change-2x {
+	animation: color-change-2x 2s linear infinite alternate both;
+}
+
+
+@keyframes color-change-2x {
+  0% {
+    background: #6D3CFE;
   }
-  
-  /* Titulos */
-  .Titles {
-    font-family: "Poppins", sans-serif;
+  100% {
+    background: #b22cff;
   }
-  
+}

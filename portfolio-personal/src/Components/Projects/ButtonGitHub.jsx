@@ -18,7 +18,7 @@ const ButtonGitHub = () => {
         opacity: 0,
         y: 100,
         ease: "power3",
-        duration: 1.5,
+        duration: 1.2,
         stagger: 0.3,
         scrollTrigger: {
           trigger: "#ContainerProject",

@@ -61,7 +61,7 @@ const MenuNav = ({ showMenu, setShowMenu }) => {
                 transition={"transform 0.3s ease"}
                 position={"absolute"}
                 top={"26px"}
-                color={"white"}
+                color={"#9d8cf8"}
                 width={"100%"}
               >
                 {link.name}
