@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { navigate, links } from "../links";
 
 const NavigateAndLink = () => {
-
   return (
     <Flex
       w={"300px"}
@@ -71,8 +70,8 @@ const NavigateAndLink = () => {
       </Flex>
       <Flex flexDirection={{ base: "row", lg: "column" }} gap={"20px"}>
         {links.map((links, index) => (
-          <Link key={index} to={links.url}>
-         <Flex
+          <Link key={index} to={links.url} target="_blank">
+            <Flex
               h={{ base: "27px", xl: "36px" }}
               flexDirection={"column"}
               alignItems={"flex-start"}
@@ -115,7 +114,7 @@ const NavigateAndLink = () => {
                 {links.name}
               </Text>
             </Flex>
-        </Link>
+          </Link>
         ))}
       </Flex>
     </Flex>

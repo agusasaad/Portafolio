@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import imgProfile from "../../../public/img/imgProfile.jpg";
-const AvatarNav = ({setShowMenu}) => {
+const AvatarNav = ({ setShowMenu }) => {
   const circleRef = useRef(null);
 
   useEffect(() => {
     gsap.to(circleRef.current, {
       scale: 2.5,
       opacity: 0,
-      ease:'power1',
-      repeat:-1,
-      duration:1.3
+      ease: "power1",
+      repeat: -1,
+      duration: 1.3,
     });
   }, []);
 
@@ -24,7 +24,7 @@ const AvatarNav = ({setShowMenu}) => {
         alignItems={"center"}
         justifyItems={"flex-start"}
       >
-        <Link to={'./'} title="Home" onClick={() => setShowMenu(false)}>
+        <Link to={"./"} title="Home" onClick={() => setShowMenu(false)}>
           <Box
             id="borderAvatar"
             border={"2px"}
@@ -52,7 +52,11 @@ const AvatarNav = ({setShowMenu}) => {
           >
             Agustin Asaad
           </Text>
-          <Link to={"https://www.linkedin.com/in/agustin-asaad/"} title="Link to my LinkedIn profile.">
+          <Link
+            to={"https://www.linkedin.com/in/agustin-asaad/"}
+            title="Link to my LinkedIn profile."
+            target="_blank"
+          >
             <Flex alignItems={"center"} gap={1}>
               <Flex position={"relative"}>
                 <Box

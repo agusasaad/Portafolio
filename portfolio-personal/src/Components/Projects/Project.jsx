@@ -57,7 +57,7 @@ const Project = () => {
         <Text
           as={"h3"}
           className="Titles"
-          fontSize={{ base: "40px", lg: "45px" }}
+          fontSize={{ base: "40px", lg: "5xl" }}
           fontWeight={400}
           color={"white"}
           letterSpacing={"-2px"}

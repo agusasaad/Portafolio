@@ -27,7 +27,6 @@ const ButtonGitHub = () => {
         },
       }
     );
-
   }, []);
 
   return (
@@ -48,7 +47,7 @@ const ButtonGitHub = () => {
           className="customTextAboutme"
           as={"p"}
           color={"grey"}
-          fontSize={{base:'md', 'lg':"20px"}}
+          fontSize={{ base: "md", lg: "20px" }}
           fontWeight={500}
           textAlign={"center"}
         >
@@ -58,7 +57,7 @@ const ButtonGitHub = () => {
           className="customTextAboutme"
           as={"p"}
           color={"grey"}
-          fontSize={{base:'md', 'lg':"20px"}}
+          fontSize={{ base: "md", lg: "20px" }}
           fontWeight={500}
           textAlign={"center"}
         >
@@ -66,7 +65,11 @@ const ButtonGitHub = () => {
         </Text>
       </Flex>
       <Flex ref={buttonVisit}>
-        <Link to={"https://github.com/agusasaad?tab=repositories"} title="Link to my repository">
+        <Link
+          to={"https://github.com/agusasaad?tab=repositories"}
+          title="Link to my repository"
+          target="_blank"
+        >
           <Button
             mt={"18px"}
             fontWeight={600}

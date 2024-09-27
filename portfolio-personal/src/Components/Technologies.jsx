@@ -2,6 +2,7 @@ import { IoLogoJavascript } from "react-icons/io";
 import { BiLogoTypescript } from "react-icons/bi";
 import { PiFileHtmlLight } from "react-icons/pi";
 import { PiFileCssLight } from "react-icons/pi";
+import { RiNextjsFill } from "react-icons/ri";
 import { FaReact } from "react-icons/fa";
 import { FaBootstrap } from "react-icons/fa";
 import { SiChakraui } from "react-icons/si";
@@ -19,6 +20,7 @@ const icons = [
     {icon: <IoLogoJavascript/>},
     {icon: <BiLogoTypescript/>},
     {icon: <FaReact/>},
+    {icon: <RiNextjsFill/>},
     {icon: <FaBootstrap/>},
     {icon: <SiChakraui/>},
     {icon: <IoLogoNodejs/>},

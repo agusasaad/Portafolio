@@ -10,7 +10,7 @@ const AboutMe = () => {
   const containerAbout = useRef(null);
   const imageProfile = useRef(null);
   const titleAbout = useRef(null);
-  const aboutme = useRef(null)
+  const aboutme = useRef(null);
   const button = useRef(null);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const AboutMe = () => {
       scale: 0.2,
       ease: "power2",
       duration: 1.2,
-      delay:0.2,
+      delay: 0.2,
       scrollTrigger: {
         trigger: containerAbout.current,
         start: "top-=400 top",
@@ -30,26 +30,19 @@ const AboutMe = () => {
       },
     });
 
-    gsap.from(
-      [
-        titleAbout.current,
-        aboutme.current,
-        button.current,
-      ],
-      {
-        opacity: 0,
-        y: 100,
-        ease: "power2",
-        duration: 1.2,
-        stagger: 0.2,
-        delay: 0.5,
-        scrollTrigger: {
-          trigger: containerAbout.current,
-          start: "top-=400 top",
-          end: "bottom top",
-        },
-      }
-    );
+    gsap.from([titleAbout.current, aboutme.current, button.current], {
+      opacity: 0,
+      y: 100,
+      ease: "power2",
+      duration: 1.2,
+      stagger: 0.2,
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: containerAbout.current,
+        start: "top-=400 top",
+        end: "bottom top",
+      },
+    });
   }, []);
 
   return (
@@ -61,43 +54,32 @@ const AboutMe = () => {
       flexDirection={"column"}
       justifyContent={"center"}
       alignItems={"center"}
-      py={{base:"130px", md:"100px"}}
+      py={{ base: "130px", md: "100px" }}
       mx={"15px"}
       gap={"15px"}
-
     >
       <SpinninText ref={imageProfile} />
-      <Flex ref={titleAbout} flexDirection={'column'} alignItems={'center'} mt={'10px'}>
-      <Text
-          as={"h4"}
-          color={"#9d8cf8"}
-          fontSize={{ base: "md", xl: "xl" }}
-          fontWeight={"500"}
-          textAlign={"center"}
-        >
-          About Me
-        </Text>
+      <Flex ref={titleAbout} flexDirection={"column"} alignItems={"center"}>
         <Text
           className="Titles"
           as={"h3"}
-          fontSize={{ base: "40px", lg: "45px" }}
+          fontSize={{ base: "40px", lg: "5xl" }}
           fontWeight={400}
           color={"white"}
           letterSpacing={"-2px"}
           textAlign={"center"}
         >
-          Who I am ?
+          About me
         </Text>
       </Flex>
       <Flex
         ref={aboutme}
         textAlign={"center"}
-        w={'100%'}
+        w={"100%"}
         flexDirection={"column"}
         alignItems={"center"}
         gap={"10px"}
-        maxW={{md:'600px', xl:'800px'}}
-        minW={"200px"}
+        maxW={{ md: "600px", xl: "800px" }}
       >
         <Text
           as={"p"}
@@ -131,7 +113,13 @@ const AboutMe = () => {
         </Text>
       </Flex>
       <Flex ref={button} justifyContent={"center"}>
-        <Link to={'https://drive.google.com/file/d/14n6ZmOkh21orDe5k7ofD1ZUDrEdGtnAd/view'} title="URL GOOGLE DRIVE">
+        <Link
+          to={
+            "https://drive.google.com/file/d/14n6ZmOkh21orDe5k7ofD1ZUDrEdGtnAd/view"
+          }
+          title="URL GOOGLE DRIVE"
+          target="_blank"
+        >
           <Button
             mt={"10px"}
             fontWeight={600}
@@ -140,10 +128,9 @@ const AboutMe = () => {
             borderRadius={"30px"}
           >
             Curriculum vitae
-          </Button> 
+          </Button>
         </Link>
       </Flex>
-     
     </Box>
   );
 };

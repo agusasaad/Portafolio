@@ -135,7 +135,7 @@ const DetailProject = () => {
               {findProject.technologies}
             </Text>
             <Flex alignItems={"center"} gap={5}>
-              <Link to={findProject.repository}>
+              <Link to={findProject.repository} target="_blank">
                 <Button
                   border={"1px"}
                   borderColor={"#171717"}
@@ -153,7 +153,7 @@ const DetailProject = () => {
                 </Button>
               </Link>
               {findProject.web && (
-                <Link to={findProject.web}>
+                <Link to={findProject.web} target="_blank">
                   <Button
                     border={"1px"}
                     borderColor={"#171717"}
