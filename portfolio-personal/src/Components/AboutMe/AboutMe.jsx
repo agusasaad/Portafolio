@@ -55,6 +55,7 @@ const AboutMe = () => {
       justifyContent={'center'}
       alignItems={'center'}
       py={{ base: '0px', md: '100px' }}
+      pb={{ base: '20px', md: '0px' }}
       mx={'15px'}
       gap={'15px'}
     >
